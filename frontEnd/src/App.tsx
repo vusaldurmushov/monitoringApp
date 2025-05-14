@@ -1,22 +1,13 @@
+import "./App.css";
 import { Button } from "./components/ui/button";
-import { AlertDialogDemo } from "./Test";
 
 function App() {
-  return (
-    <>
-      <Button
-        variant="outline"
-        className="text-blue-500 border-blue-500 hover:!bg-blue-100"
-      >
-        Button
-      </Button>
-      <div className="text-blue-500 border border-blue-500 hover:bg-blue-100">
-        Test Divx
-      </div>
+  return <div className="text-5xl text-color-red p-16">hello
+  
 
-      <AlertDialogDemo />
-    </>
-  );
+  <Button variant={"outline"}>Button</Button>
+  
+  </div>;
 }
 
 export default App;
