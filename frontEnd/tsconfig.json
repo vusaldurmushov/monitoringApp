@@ -10,5 +10,12 @@
     "paths": {
       "@/*": ["./src/*"]
     }
+  },
+  "theme": {
+    "extends": {
+      "fontFamily": {
+        "sans": ["Roboto", "sans-serif"]
+      }
+    }
   }
 }
