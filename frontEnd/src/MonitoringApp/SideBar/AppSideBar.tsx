@@ -18,7 +18,7 @@ const items = [
     collapse: [
       {
         title: "Əlavə et",
-        url: "#",
+        url: "/addUser",
         icon: Circle,
       },
       {
