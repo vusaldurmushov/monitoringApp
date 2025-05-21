@@ -1,0 +1,26 @@
+{
+  "name": "monirotingapp_backend",
+  "version": "1.0.0",
+  "description": "Backend services for monitoring app",
+  "type": "module",
+  "main": "main.js",
+  "scripts": {
+    "dev": "nodemon --watch main.js main.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vusaldurmushov/monitoringApp.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vusaldurmushov/monitoringApp/issues"
+  },
+  "homepage": "https://github.com/vusaldurmushov/monitoringApp#readme",
+  "dependencies": {
+    "express.js": "^1.0.0",
+    "joi": "^17.13.3",
+    "nodemon": "^3.1.10"
+  }
+}

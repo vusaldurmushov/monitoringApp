@@ -24,16 +24,16 @@ function AddUser() {
   };
 
   return (
-    <div className="h-full">
-      <h1 className="font-medium pb-4">CREATE PROFILE </h1>
+    <div className='h-full'>
+      <h1 className='font-medium pb-4'>CREATE PROFILE </h1>
 
       <FormProvider {...methods}>
-        <div className="flex flex-col gap-4">
+        <div className='flex flex-col gap-4'>
           <InputForm
-            name="profileImg"
-            label="Profile image"
-            type="file"
-            accept="image/*"
+            name='profileImg'
+            label='Profile image'
+            type='file'
+            accept='image/*'
             onChange={(e) => {
               const file = e.target.files?.[0];
               if (file) {
@@ -44,31 +44,31 @@ function AddUser() {
           {preview && (
             <img
               src={preview}
-              alt="Preview"
-              className="w-32 h-32 object-cover rounded-full"
+              alt='Preview'
+              className='w-32 h-32 object-cover rounded-full'
             />
           )}
-          <InputForm name="name" label="Fullname" />
-          <InputForm name="username" label="Username" />
-          <InputForm name="email" label="Email" type="email" />
-          <InputForm name="password" label="Password" type="password" />
+          <InputForm name='name' label='Fullname' />
+          <InputForm name='username' label='Username' />
+          <InputForm name='email' label='Email' type='email' />
+          <InputForm name='password' label='Password' type='password' />
           <InputForm
-            name="passwordConfirm"
-            label="Confirm password"
-            type="password"
+            name='passwordConfirm'
+            label='Confirm password'
+            type='password'
           />
           <SelectForm
-            name="role"
-            label="Role"
-            value="Admin"
+            name='role'
+            label='Role'
+            value='Admin'
             options={roleOptions}
-            className="w-full"
+            className='w-full'
           />
 
           <Button
-            className="self-start"
+            className='self-start'
             onClick={methods.handleSubmit(onSubmit)}
-            type="submit"
+            type='submit'
           >
             Submit
           </Button>
