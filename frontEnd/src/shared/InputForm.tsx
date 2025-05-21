@@ -22,6 +22,8 @@ function InputForm({
   description,
   label,
   type,
+  accept,
+  onChange,
 }: InputProps) {
   const methods = useFormContext();
 
@@ -33,7 +35,16 @@ function InputForm({
         <FormItem>
           <FormLabel>{label}</FormLabel>
           <FormControl>
-            <Input placeholder={placeholder} {...field} type={type} />
+            <Input
+              placeholder={placeholder}
+              {...field}
+              type={type}
+              accept={accept}
+              onChange={(e) => {
+                field.onChange(e); // important: keep RHF in sync
+                onChange?.(e); // optional: call your custom handler
+              }}
+            />
           </FormControl>
           <FormDescription>{description}</FormDescription>
           <FormMessage />
