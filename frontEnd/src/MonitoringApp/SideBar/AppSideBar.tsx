@@ -23,7 +23,7 @@ const items = [
       },
       {
         title: "Siyahı",
-        url: "#",
+        url: "/userlist",
         icon: Circle,
       },
     ],

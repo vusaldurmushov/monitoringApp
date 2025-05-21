@@ -24,6 +24,7 @@ function InputForm({
   type,
   accept,
   onChange,
+  className,
 }: InputProps) {
   const methods = useFormContext();
 
@@ -36,9 +37,11 @@ function InputForm({
           <FormLabel>{label}</FormLabel>
           <FormControl>
             <Input
+              className={className}
               placeholder={placeholder}
               {...field}
               type={type}
+              value={field.value ?? ""}
               accept={accept}
               onChange={(e) => {
                 field.onChange(e); // important: keep RHF in sync

@@ -1,37 +1,9 @@
-// components/AdStatsChart.tsx
 import { Pie } from "react-chartjs-2";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 import { Card, CardHeader, CardTitle } from "@/components/ui/card";
+import { adStats } from "@/const";
 
 ChartJS.register(ArcElement, Tooltip, Legend);
-
-// Your data
-const adStats = {
-  title: "Tamkart partnyorlara görə reklam statistikası",
-  statistics: {
-    "Cari Gün ərzində əlavə olunanlar arasında": [
-      { name: "Qapıda asılqan", quantity: 1 },
-      { name: "A4", quantity: 1 },
-      { name: "Buklet", quantity: 1 },
-      { name: "Stiker", quantity: 1 },
-      { name: "Wobler", quantity: 1 },
-    ],
-    "Cari Ay ərzində əlavə olunanlar arasında": [
-      { name: "Qapıda asılqan", quantity: 118 },
-      { name: "A4", quantity: 424 },
-      { name: "Buklet", quantity: 386 },
-      { name: "Stiker", quantity: 842 },
-      { name: "Wobler", quantity: 19 },
-    ],
-    Ümumi: [
-      { name: "Qapıda asılqan", quantity: 1913 },
-      { name: "A4", quantity: 5032 },
-      { name: "Buklet", quantity: 4472 },
-      { name: "Stiker", quantity: 8980 },
-      { name: "Wobler", quantity: 847 },
-    ],
-  },
-};
 
 const generateChartData = (dataSet: { name: string; quantity: number }[]) => ({
   labels: dataSet.map((item) => `${item.name} -${item.quantity}`),
@@ -46,18 +18,15 @@ const generateChartData = (dataSet: { name: string; quantity: number }[]) => ({
 
 export const AdStatsChart = () => {
   return (
-    <div className='p-6'>
-      <CardTitle className='text-2xl font-bold mb-6'>{adStats.title}</CardTitle>
-      <div className='grid grid-cols-2 gap-4'>
+    <div className="p-6">
+      <CardTitle className="text-2xl font-bold mb-6">{adStats.title}</CardTitle>
+      <div className="grid grid-cols-2 gap-4">
         {Object.entries(adStats.statistics).map(([subtitle, values]) => (
           <Card>
-            <CardHeader
-              key={subtitle}
-              className='text-xl font-semibold mb-4'
-            >
+            <CardHeader key={subtitle} className="text-xl font-semibold mb-4">
               {subtitle}
             </CardHeader>
-            <div className='h-[280px] mx-auto '>
+            <div className="h-[280px] mx-auto ">
               <Pie data={generateChartData(values)} />
             </div>
           </Card>
