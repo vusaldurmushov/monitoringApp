@@ -5,7 +5,7 @@
   "type": "module",
   "main": "main.js",
   "scripts": {
-    "dev": "nodemon --watch main.js main.js",
+    "dev": "nodemon --watch main.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -21,6 +21,7 @@
   "dependencies": {
     "express.js": "^1.0.0",
     "joi": "^17.13.3",
+    "nedb-promises": "^6.2.3",
     "nodemon": "^3.1.10"
   }
 }
