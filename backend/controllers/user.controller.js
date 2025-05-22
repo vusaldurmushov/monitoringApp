@@ -1,6 +1,7 @@
-import { addUserDb } from "../models/user.model.js";
+import { addUserDb, findUserDb } from "../models/user.model.js";
 
-const createUser = async (req, res) => {
+// add user to db
+export const createUser = async (req, res) => {
   try {
     const newUser = await addUserDb(req.body);
     res
@@ -15,4 +16,25 @@ const createUser = async (req, res) => {
   }
 };
 
-export default createUser;
+// findUser with id
+
+export const findUserfromDb = async (req, res) => {
+  const { id } = req.params;
+
+  if (!id) {
+    return res.status(400).send("User ID is required");
+  }
+
+  try {
+    const user = await findUserDb(id);
+
+    if (!user) {
+      return res.status(404).send("User not found!");
+    }
+
+    res.status(200).json(user);
+  } catch (error) {
+    console.error("Error fetching user:", error);
+    res.status(500).send("Internal server error");
+  }
+};

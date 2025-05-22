@@ -19,5 +19,5 @@ export const postSchema = Joi.object({
     "any.only": "Confirm password does not match password",
     "any.required": "Confirm password is required",
   }),
-  role: Joi.string().optional(),
+  role: Joi.string().optional().required(),
 });

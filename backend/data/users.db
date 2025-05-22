@@ -1,0 +1,6 @@
+{"fullName":"Person3","username":"Abdul1","password":"1453Vusal!","confirmPassword":"1453Vusal!","email":"test3@mail.com","role":"admin","_id":"QiUcC4P3dq2eYctp"}
+{"fullName":"Person3","username":"Abdul","password":"1453Vusal!","confirmPassword":"1453Vusal!","email":"test3@mail.com","role":"admin","_id":"UTeNWPpuK2CPNWwA"}
+{"fullName":"Person3","username":"Abdul5","password":"1453Vusal!","confirmPassword":"1453Vusal!","email":"test3@mail.com","role":"admin","_id":"aKOZHS0FQVwkAaUh"}
+{"fullName":"Person3","username":"Abdul2","password":"1453Vusal!","confirmPassword":"1453Vusal!","email":"test3@mail.com","role":"admin","_id":"rer8aLIIM8JkVJGh"}
+{"fullName":"Person3","username":"Abdul4","password":"1453Vusal!","confirmPassword":"1453Vusal!","email":"test3@mail.com","role":"admin","_id":"sgtCZC9gFUXIqkX4"}
+{"$$indexCreated":{"fieldName":"email,username","unique":true,"sparse":false}}
