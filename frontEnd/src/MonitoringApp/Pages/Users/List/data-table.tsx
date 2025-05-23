@@ -2,9 +2,9 @@ import {
   flexRender,
   getCoreRowModel,
   useReactTable,
-  getPaginationRowModel,
+  // getPaginationRowModel,
   type ColumnDef,
-  getFilteredRowModel,
+  // getFilteredRowModel,
 } from "@tanstack/react-table";
 
 import {
@@ -35,23 +35,23 @@ export function DataTable<TData, TValue>({
   columns,
   data,
 }: DataTableProps<TData, TValue>) {
-  const [pagination, setPagination] = useState({
-    pageIndex: 0,
-    pageSize: 5, // default rows per page
-  });
+  // const [pagination, setPagination] = useState({
+  //   pageIndex: 0,
+  //   pageSize: 15, // default rows per page
+  // });
   const [globalFilter, setGlobalFilter] = useState("");
 
   const table = useReactTable({
     data,
     columns,
     getCoreRowModel: getCoreRowModel(),
-    getPaginationRowModel: getPaginationRowModel(),
-    getFilteredRowModel: getFilteredRowModel(),
+    // getPaginationRowModel: getPaginationRowModel(),
+    // getFilteredRowModel: getFilteredRowModel(),
     state: {
-      pagination,
+      // pagination,
       globalFilter,
     },
-    onPaginationChange: setPagination,
+    // onPaginationChange: setPagination,
   });
 
   return (
@@ -107,14 +107,14 @@ export function DataTable<TData, TValue>({
       <div className="flex items-center gap-4 my-4 ml-2 ">
         <Label htmlFor="rowsPerPage">Rows per page:</Label>
         <Select
-          value={pagination.pageSize.toString()}
+          // value={pagination.pageSize.toString()}
           onValueChange={(value) => table.setPageSize(Number(value))}
         >
           <SelectTrigger className="w-[100px]" id="rowsPerPage">
             <SelectValue placeholder="Select size" />
           </SelectTrigger>
           <SelectContent>
-            {[5, 10, 15].map((size) => (
+            {[5,10,15].map((size) => (
               <SelectItem key={size} value={size.toString()}>
                 {size}
               </SelectItem>

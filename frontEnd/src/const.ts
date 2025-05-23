@@ -1,4 +1,4 @@
-import type { TUserList } from "@/MonitoringApp/Pages/Users/List/UserTable/columns";
+import type { TUser } from "@/types";
 
 export type Role = "admin" | "editor" | "user" | "guest" | "rehebrlik";
 
@@ -65,7 +65,7 @@ export const adStats = {
   },
 };
 
-export const UserList: TUserList[] = [
+export const UserList: TUser[] = [
   {
     id: "1",
     name: "Vusal Durmushov",

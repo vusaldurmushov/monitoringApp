@@ -27,17 +27,14 @@ type TSelect = {
   description?: string;
   label?: string;
   options: TOption[];
+  placeholder:string;
   defaultValue?: string;
+  
 } & SelectHTMLAttributes<HTMLSelectElement>;
 
-function SelectForm({
-  name,
-  label,
-  description,
-  options,
-  value,
-  className,
-}: TSelect) {
+function SelectForm({ name, label, description, options, className,placeholder }: TSelect) {
+
+
   const methods = useFormContext();
 
   return (
@@ -47,10 +44,10 @@ function SelectForm({
       render={({ field }) => (
         <FormItem>
           <FormLabel>{label}</FormLabel>
-          <Select onValueChange={field.onChange} value={field.value}>
+          <Select  onValueChange={field.onChange}>
             <FormControl>
               <SelectTrigger className={className}>
-                <SelectValue placeholder={value} />
+                <SelectValue placeholder={placeholder} />
               </SelectTrigger>
             </FormControl>
             <SelectContent>

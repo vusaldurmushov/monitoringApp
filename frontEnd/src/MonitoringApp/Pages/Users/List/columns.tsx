@@ -1,19 +1,12 @@
 import { Button } from "@/components/ui/button";
-import type { Role } from "@/const";
 import type { ColumnDef } from "@tanstack/react-table";
 import { Link } from "react-router-dom";
+import type { Row } from "@tanstack/react-table";
+import type { TUser } from "@/types";
 
-export type TUserList = {
-  id: string;
-  name: string;
-  username: string;
-  role: Role;
-  createdAt: string;
-};
-
-export const columns: ColumnDef<TUserList>[] = [
+export const columns: ColumnDef<TUser>[] = [
   {
-    accessorKey: "id",
+    accessorKey: "_id",
     header: "ID",
   },
   {
@@ -35,7 +28,7 @@ export const columns: ColumnDef<TUserList>[] = [
   {
     id: "actions",
     header: "Actions",
-    cell: ({ row }) => {
+    cell: ({ row }: { row: Row<TUser> }) => {
       const user = row.original;
       return (
         <div className="flex items-center">

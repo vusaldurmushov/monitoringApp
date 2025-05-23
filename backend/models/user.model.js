@@ -5,5 +5,7 @@ export const addUserDb = async (userData) => {
 };
 
 export const findUserDb = async (id) => {
-  return await db.findOne({ _id:id });
+  return await db.findOne({ _id: id });
 };
+
+
