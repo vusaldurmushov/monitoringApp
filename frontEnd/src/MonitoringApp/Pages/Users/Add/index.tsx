@@ -34,8 +34,6 @@ function AddUser() {
 
       <FormProvider {...methods}>
         <div className="flex flex-col gap-4">
-          <DotLoader color="#36d7b7" loading={true} size={50} />;
-          <DotLoader/>
           <InputForm
             name="profileImg"
             label="Profile image"
