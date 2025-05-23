@@ -9,9 +9,6 @@ app.use(cors());
 app.options("*", cors());
 app.use(userRoutes);
 
-app.patch("/users/:id/edit", )
-
-
 app.listen(3000, () => {
   console.log("Server is running on 3000 port");
 });

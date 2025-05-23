@@ -29,18 +29,18 @@ type TSidebarMenuGroup = {
 export function SidebarMenuGroup({ label, items }: TSidebarMenuGroup) {
   return (
     <>
-      <SidebarGroupLabel className='text-white'>{label}</SidebarGroupLabel>
+      <SidebarGroupLabel className='text-white hover:text-[var(--sidebar-primary)]'>{label}</SidebarGroupLabel>
       <SidebarGroupContent>
         <SidebarMenu>
           {items.map((item) => (
-            <SidebarMenuItem key={item.title}>
+            <SidebarMenuItem className="hover:text-[var(--sidebar-primary)] " key={item.title}>
               {item?.collapse ? (
                 <Collapsible>
                   <CollapsibleTrigger className=' group flex items-center w-full'>
-                    <SidebarMenuButton className='flex-1 justify-between'>
+                    <SidebarMenuButton className='flex-1 justify-between hover:text-[var(--sidebar-primary)] '>
                       <div className='flex items-center'>
-                        <item.icon className='mr-4 h-4 w-4 text-white' />
-                        <span className='text-white'>{item.title}</span>
+                        <item.icon className='mr-4 h-4 w-4 text-white hover:text-[var(--sidebar-primary)]' />
+                        <span className='text-white hover:text-[var(--sidebar-primary)]'>{item.title}</span>
                       </div>
                       <ChevronDown className='transition-transform group-data-[state=open]:rotate-180 text-white ' />
                     </SidebarMenuButton>
@@ -56,8 +56,8 @@ export function SidebarMenuGroup({ label, items }: TSidebarMenuGroup) {
                                   href={subItem.url}
                                   className='flex items-center'
                                 >
-                                  <subItem.icon className=' scale-60 w-3 h-3 mr-2 text-white' />
-                                  <span className='text-white'>
+                                  <subItem.icon className=' scale-60 w-3 h-3 mr-2 text-white hover:text-[var(--sidebar-primary)]' />
+                                  <span className='text-white hover:text-[var(--sidebar-primary)]'>
                                     {subItem.title}
                                   </span>
                                 </a>
@@ -71,11 +71,11 @@ export function SidebarMenuGroup({ label, items }: TSidebarMenuGroup) {
                 </Collapsible>
               ) : (
                 <SidebarMenuButton asChild>
-                  <a href={item.url} className='flex items-center text-white'>
+                  <a href={item.url} className='flex items-center text-white hover:text-[var(--sidebar-primary)] '>
                     {item?.icon && (
-                      <item.icon className='  h-4 w-4 mr-2 text-white' />
+                      <item.icon className='  h-4 w-4 mr-2 text-white hover:text-[var(--sidebar-primary)] ' />
                     )}
-                    <span className='text-white '>{item.title}</span>
+                    <span className='text-white hover:text-[var(--sidebar-primary)]  '>{item.title}</span>
                   </a>
                 </SidebarMenuButton>
               )}

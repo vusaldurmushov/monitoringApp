@@ -1,5 +1,4 @@
 import express from "express";
-import cors from "cors";
 
 import { validate } from "../middlewares/validate.js";
 import {

@@ -8,6 +8,7 @@ import SelectForm from "@/shared/SelectForm";
 import { roleOptions } from "@/const";
 import { formSchema } from "@/MonitoringApp/formSchame";
 import { useCreateUser } from "@/services/hooks/post.user";
+import DotLoader from "react-spinners/DotLoader";
 
 function AddUser() {
   const [preview, setPreview] = useState<string | null>(null);
@@ -33,6 +34,8 @@ function AddUser() {
 
       <FormProvider {...methods}>
         <div className="flex flex-col gap-4">
+          <DotLoader color="#36d7b7" loading={true} size={50} />;
+          <DotLoader/>
           <InputForm
             name="profileImg"
             label="Profile image"

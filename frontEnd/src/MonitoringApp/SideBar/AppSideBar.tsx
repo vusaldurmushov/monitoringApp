@@ -50,8 +50,8 @@ export function AppSidebar() {
       className='bg-[var(--sidebar-background)]'
     >
       <div className='border-b-[1px]  bg-[var(--sidebar-background)]  '>
-        <h1 className=' text-xl text-center py-4 text-white group-data-[state=collapsed]:hidden'>
-          Monitoring <span className='font-semibold'>App</span>
+        <h1 className=' text-xl text-center py-4  group-data-[state=collapsed]:hidden text-[var(--sidebar-primary)]'>
+          Monitoring  <span className='font-semibold text-white'>App</span>
         </h1>
       </div>
       <SidebarContent className='bg-[var(--sidebar-background)]'>
