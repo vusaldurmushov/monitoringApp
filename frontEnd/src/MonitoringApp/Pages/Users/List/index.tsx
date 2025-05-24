@@ -1,6 +1,7 @@
 import { columns } from "./columns";
 import { DataTable } from "./data-table";
 import { useUsers } from "@/services/hooks/get.users";
+import { SuccessAlert } from "./SuccessAlert";
 
 export default function DemoPage() {
   const { data, isLoading, error } = useUsers();
@@ -11,9 +12,10 @@ export default function DemoPage() {
   return (
     <div className='container mx-auto py-10'>
       <DataTable columns={columns} data={data ?? []} />
-      <pre className='mt-6 bg-gray-100 p-4 rounded'>
+      {/* <pre className='mt-6 bg-gray-100 p-4 rounded'>
         {JSON.stringify(data, null, 2)}
-      </pre>
+      </pre> */}
+      <SuccessAlert />
     </div>
   );
 }

@@ -1,7 +1,7 @@
 import type { Role } from "@/const";
 
 export type TUser = {
-  id?: string;
+  _id: string;
   name: string;
   username: string;
   role: Role;

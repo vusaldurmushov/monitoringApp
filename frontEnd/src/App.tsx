@@ -24,9 +24,9 @@ function App() {
               <Route path="/" element={<Dashboard />} />
               <Route path="/addUser" element={<AddUser />} />
               <Route path="/userlist" element={<UserList />} />
-              <Route path="/edit" element={<Edit />} />
+              <Route path="/users/:id/edit" element={<Edit />} />
             </Routes>
-          </div>
+          </div>  
         </div>
       </SidebarProvider>
       {/* <NotFound/> */}

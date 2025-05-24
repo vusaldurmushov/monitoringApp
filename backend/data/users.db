@@ -1,12 +1,9 @@
-{"username":"vusal.alasgarov","name":"Vusal Alasgarov","email":"zipuka@mailinator.com","role":"admin","password":"1453Vusal!","confirmPassword":"1453Vusal!","_id":"93jRS0dvujv03gSd"}
-{"name":"Vusal Durmushov","username":"vusal.durmushov2","password":"1453Vusal!","confirmPassword":"1453Vusal!","email":"vusal2@gmail.com","role":"admin","_id":"HM1Q2ruNlyQa8Qae"}
-{"name":"Vusal Durmushov111","username":"AbdulChangeData111222","password":"1453Vusal!","confirmPassword":"1453Vusal!","email":"AbdulChangeDat111222a@gmail.com","role":"admin","_id":"QiUcC4P3dq2eYctp"}
-{"name":"Vusal Durmushov111","username":"Abdul12342222323234444","password":"1453Vusal!","confirmPassword":"1453Vusal!","email":"vusal1www22233344443@gmail.com","role":"admin","_id":"aKOZHS0FQVwkAaUh"}
-{"name":"Vusal Durmushov","username":"vusal.durmushov","password":"1453Vusal!","confirmPassword":"1453Vusal!","email":"vusal@gmail.com","role":"admin","_id":"w1EeHYfRgqscLhlL"}
-{"$$indexCreated":{"fieldName":"username","unique":true,"sparse":false}}
-{"$$indexCreated":{"fieldName":"email","unique":true,"sparse":false}}
-{"$$indexCreated":{"fieldName":"email,username","unique":true,"sparse":false}}
-{"$$deleted":true,"_id":"93jRS0dvujv03gSd"}
-{"$$deleted":true,"_id":"HM1Q2ruNlyQa8Qae"}
-{"$$deleted":true,"_id":"w1EeHYfRgqscLhlL"}
-{"$$deleted":true,"_id":"aKOZHS0FQVwkAaUh"}
+{"username":"vusal.durmushov","name":"Vusal Durmushov","email":"vusal.durmushov06@gmail.com","role":"rehebrlik","password":"1453Vusal!","confirmPassword":"1453Vusal!","_id":"iqu4DvhDcalB8XFC"}
+{"username":"vusal.alasgarov","name":"Vusal Alasgarov","email":"vusal.alagarov@gmail.com","role":"user","password":"1453Vusal!","confirmPassword":"1453Vusal!","_id":"yYFqCWIXV3vmJP8A"}
+{"$$deleted":true,"_id":"yYFqCWIXV3vmJP8A"}
+{"$$deleted":true,"_id":"iqu4DvhDcalB8XFC"}
+{"username":"vusal.durmushov","name":"Vusal Durmushov","email":"dwdwdw@mail.com","role":"admin","password":"1453Vusal@","confirmPassword":"1453Vusal@","_id":"rtzBMhy6PFAi2rLq"}
+{"username":"vuqar.durmusov","name":"Vusal","email":"nurlan.nasibli@abb-bank.az","role":"admin","password":"1453Vusal@","confirmPassword":"1453Vusal@","_id":"FMEvJ8gMQe88oAvM"}
+{"username":"vusaldurmushov","name":"Abdulla","email":"cacoxudu@mailinator.com","role":"admin","password":"1453Vusal@","confirmPassword":"1453Vusal@","_id":"KY9ZdeRuI7nSoSFl"}
+{"$$deleted":true,"_id":"FMEvJ8gMQe88oAvM"}
+{"$$deleted":true,"_id":"KY9ZdeRuI7nSoSFl"}

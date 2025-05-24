@@ -1,5 +1,5 @@
 import db from "../config/db.js";
-import { addUserDb, deleteDb, findUserDb } from "../models/user.model.js";
+import { addUserDb, conflictDb, deleteDb, findUserDb, updateUserDb } from "../models/user.model.js";
 
 // add user to db
 export const createUser = async (req, res) => {
@@ -53,22 +53,27 @@ export const getAllUsers = async (req, res) => {
 // PATCH
 export const changeData = async (req, res) => {
   const { id } = req.params;
+  console.log(id);
   const usersUpdateInfo = req.body;
-
+console.log(usersUpdateInfo,'userIndo');
   if (!id) {
     return res.status(400).send("User ID not provided");
   }
 
   try {
     // Check for conflict with existing user (excluding current one)
-
+console.log('try, catch');
     const conflictUser = await db.findOne({
-      _id: { $ne: id },
+      _id: { $ne: id.toString() },
       $or: [
         { username: usersUpdateInfo.username },
         { email: usersUpdateInfo.email },
       ],
     });
+
+    console.log(conflictUser,'conflixtUxer');
+
+    // const conflictUser = await  conflictDb(id ,usersUpdateInfo )
 
     if (conflictUser) {
       return res
@@ -77,14 +82,14 @@ export const changeData = async (req, res) => {
     }
 
     // Update user
-    const result = await db.update({ _id: id }, { $set: usersUpdateInfo });
+    const result = await updateUserDb(id,usersUpdateInfo );
 
     if (result === 0) {
       return res.status(404).json({ message: "User not found" });
     }
 
     // Fetch updated user
-    const updatedUser = await db.findOne({ _id: id });
+    const updatedUser = await findUserDb(id);
 
     res.status(200).json(updatedUser);
   } catch (error) {
@@ -92,6 +97,9 @@ export const changeData = async (req, res) => {
     res.status(500).json({ message: "Failed to update user", error });
   }
 };
+
+
+// DeelteUser
 
 export const deleteUser = async (req, res) => {
   const { id } = req.params;

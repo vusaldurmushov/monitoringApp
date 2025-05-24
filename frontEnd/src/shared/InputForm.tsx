@@ -23,6 +23,7 @@ function InputForm({
   label,
   type,
   accept,
+  disabled,
   onChange,
   className,
 }: InputProps) {
@@ -41,6 +42,7 @@ function InputForm({
               placeholder={placeholder}
               {...field}
               type={type}
+              disabled={disabled}
               value={field.value ?? ""}
               accept={accept}
               onChange={(e) => {
