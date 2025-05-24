@@ -7,6 +7,7 @@ import { Routes, Route } from "react-router-dom";
 import AddUser from "@/MonitoringApp/Pages/Users/Add";
 import UserList from "@/MonitoringApp/Pages/Users/List";
 import Edit from "@/MonitoringApp/Pages/Users/Edit";
+// import NotFound from "@/components/NotFound404";
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
           </div>
         </div>
       </SidebarProvider>
+      {/* <NotFound/> */}
     </div>
   );
 }

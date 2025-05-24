@@ -18,7 +18,7 @@ function AddUser() {
   const methods = useForm<FormData>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      role: "admin", // ← set your initial select value here
+      role: "admin", 
     },
   });
 
