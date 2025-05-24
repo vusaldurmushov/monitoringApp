@@ -1,10 +1,12 @@
-{"username":"jemile.garayeva","name":"Jemile Garayeva","email":"jemila.garayeva@gmail.com","role":"rehebrlik","password":"1453Vusal!","confirmPassword":"1453Vusal!","_id":"5uR2E54CMMQVcIV5"}
 {"username":"vusal.alasgarov","name":"Vusal Alasgarov","email":"zipuka@mailinator.com","role":"admin","password":"1453Vusal!","confirmPassword":"1453Vusal!","_id":"93jRS0dvujv03gSd"}
 {"name":"Vusal Durmushov","username":"vusal.durmushov2","password":"1453Vusal!","confirmPassword":"1453Vusal!","email":"vusal2@gmail.com","role":"admin","_id":"HM1Q2ruNlyQa8Qae"}
 {"name":"Vusal Durmushov111","username":"AbdulChangeData111222","password":"1453Vusal!","confirmPassword":"1453Vusal!","email":"AbdulChangeDat111222a@gmail.com","role":"admin","_id":"QiUcC4P3dq2eYctp"}
-{"name":"Person3","username":"Abdul","password":"1453Vusal!","confirmPassword":"1453Vusal!","email":"test3@mail.com","role":"admin","_id":"UTeNWPpuK2CPNWwA"}
 {"name":"Vusal Durmushov111","username":"Abdul12342222323234444","password":"1453Vusal!","confirmPassword":"1453Vusal!","email":"vusal1www22233344443@gmail.com","role":"admin","_id":"aKOZHS0FQVwkAaUh"}
-{"name":"Person3","username":"Abdul2","password":"1453Vusal!","confirmPassword":"1453Vusal!","email":"test3@mail.com","role":"admin","_id":"rer8aLIIM8JkVJGh"}
-{"name":"Person3","username":"Abdul4","password":"1453Vusal!","confirmPassword":"1453Vusal!","email":"test3@mail.com","role":"admin","_id":"sgtCZC9gFUXIqkX4"}
 {"name":"Vusal Durmushov","username":"vusal.durmushov","password":"1453Vusal!","confirmPassword":"1453Vusal!","email":"vusal@gmail.com","role":"admin","_id":"w1EeHYfRgqscLhlL"}
+{"$$indexCreated":{"fieldName":"username","unique":true,"sparse":false}}
+{"$$indexCreated":{"fieldName":"email","unique":true,"sparse":false}}
 {"$$indexCreated":{"fieldName":"email,username","unique":true,"sparse":false}}
+{"$$deleted":true,"_id":"93jRS0dvujv03gSd"}
+{"$$deleted":true,"_id":"HM1Q2ruNlyQa8Qae"}
+{"$$deleted":true,"_id":"w1EeHYfRgqscLhlL"}
+{"$$deleted":true,"_id":"aKOZHS0FQVwkAaUh"}

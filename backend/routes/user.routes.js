@@ -6,6 +6,7 @@ import {
   createUser,
   getAllUsers,
   changeData,
+  deleteUser,
 } from "../controllers/user.controller.js";
 import { postSchema } from "../validation/user.validation.js";
 
@@ -17,6 +18,8 @@ router.get("/users/:id/edit", findUserfromDb);
 
 router.post("/createUser", validate(postSchema), createUser);
 
-router.patch("/users/:id/edit", changeData)
+router.patch("/users/:id/update", changeData)
+
+router.delete("/users/:id/deleteUser",deleteUser )
 
 export default router;

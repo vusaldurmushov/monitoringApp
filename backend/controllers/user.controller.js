@@ -1,5 +1,5 @@
 import db from "../config/db.js";
-import { addUserDb, findUserDb } from "../models/user.model.js";
+import { addUserDb, deleteDb, findUserDb } from "../models/user.model.js";
 
 // add user to db
 export const createUser = async (req, res) => {
@@ -90,5 +90,22 @@ export const changeData = async (req, res) => {
   } catch (error) {
     console.error("Error updating user:", error);
     res.status(500).json({ message: "Failed to update user", error });
+  }
+};
+
+export const deleteUser = async (req, res) => {
+  const { id } = req.params;
+  if (!id) return res.status(400).send("User ID not provided");
+
+  try {
+    const numRemoved = deleteDb(id);
+    if (numRemoved === 0) {
+      return res.status(404).send("User not found");
+    }
+
+    res.status(200).send("User deleted successfully");
+  } catch (error) {
+    console.error("Error deleting user:", error);
+    res.status(500).send("Server error while deleting user");
   }
 };

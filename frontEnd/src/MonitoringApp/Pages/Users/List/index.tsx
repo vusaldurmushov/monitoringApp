@@ -9,9 +9,9 @@ export default function DemoPage() {
   if (error) return <div>Error occurred</div>;
 
   return (
-    <div className="container mx-auto py-10">
+    <div className='container mx-auto py-10'>
       <DataTable columns={columns} data={data ?? []} />
-      <pre className="mt-6 bg-gray-100 p-4 rounded">
+      <pre className='mt-6 bg-gray-100 p-4 rounded'>
         {JSON.stringify(data, null, 2)}
       </pre>
     </div>

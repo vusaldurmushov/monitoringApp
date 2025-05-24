@@ -5,6 +5,7 @@ const db = new Datastore({
   autoload: true,
 });
 
-db.ensureIndex({ fieldName: ["username", "email"], unique: true });
+db.ensureIndex({ fieldName: 'username', unique: true }); // Unique on username only
+db.ensureIndex({ fieldName: 'email', unique: true });
 
 export default db;

@@ -8,4 +8,6 @@ export const findUserDb = async (id) => {
   return await db.findOne({ _id: id });
 };
 
-
+export const deleteDb = async (id) => {
+  return await db.remove({ _id: id });
+};

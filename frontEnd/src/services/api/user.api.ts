@@ -16,3 +16,10 @@ export const createUser = async (data: TUser) => {
   const response = await axios.post("http://localhost:3000/createUser", data);
   return response.data;
 };
+
+export const deleteUser = async (id: string) => {
+  const response = await axios.delete(
+    `http://localhost:3000/users/${id}/deleteUser`
+  );
+  return response.data;
+};

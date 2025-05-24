@@ -12,7 +12,7 @@ function NotFound() {
         className="max-w-xs md:max-w-md w-full h-auto"
       />
       <h1 className="text-[80px] text-[var(--secondary-text)] font-semibold">
-        404
+      {accessDenied ? "403" : "404"}
       </h1>
       <p className="text-[21px] font-medium">
         {accessDenied ? "Access Denied" : "Page Not Found"}
