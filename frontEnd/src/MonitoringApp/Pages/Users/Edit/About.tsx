@@ -1,11 +1,12 @@
 import type { TUser } from "@/types";
 
 function About({ user }:TUser) {
+  console.log(name)
   const userAbout = {
-    "TAM AD": user.name,
-    "İSTİFADƏÇİ ADI": user.username,
-    "E-MAIL": user.email,
-    "ƏLAVƏ OLUNUB": "1 ay əvvəl",
+    "TAM AD": user?.name,
+    "İSTİFADƏÇİ ADI": user?.username,
+    "E-MAIL": user?.email,
+    "ƏLAVƏ OLUNUB": user?.dateForCreated
   };
 
   return (

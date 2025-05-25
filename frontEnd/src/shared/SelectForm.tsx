@@ -44,7 +44,7 @@ function SelectForm({ name, label, description, options, className,placeholder }
       render={({ field }) => (
         <FormItem>
           <FormLabel>{label}</FormLabel>
-          <Select  onValueChange={field.onChange}>
+          <Select value={field.value ?? ""} onValueChange={field.onChange}>
             <FormControl>
               <SelectTrigger className={className}>
                 <SelectValue placeholder={placeholder} />

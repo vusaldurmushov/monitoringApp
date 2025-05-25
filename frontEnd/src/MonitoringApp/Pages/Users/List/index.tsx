@@ -2,6 +2,8 @@ import { columns } from "./columns";
 import { DataTable } from "./data-table";
 import { useUsers } from "@/services/hooks/get.users";
 import { SuccessAlert } from "./SuccessAlert";
+import { Toaster } from "sonner";
+import { CustomSuccessToast } from "@/components/CustomToast";
 
 export default function DemoPage() {
   const { data, isLoading, error } = useUsers();
@@ -15,7 +17,6 @@ export default function DemoPage() {
       {/* <pre className='mt-6 bg-gray-100 p-4 rounded'>
         {JSON.stringify(data, null, 2)}
       </pre> */}
-      <SuccessAlert />
     </div>
   );
 }

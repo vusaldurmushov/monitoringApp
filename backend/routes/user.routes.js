@@ -16,10 +16,11 @@ router.get("/getAllUsers", getAllUsers);
 
 router.get("/users/:id/edit", findUserfromDb);
 
+// router.post("/createUser",  upload.single("profileImage"),validate(postSchema), createUser);
 router.post("/createUser", validate(postSchema), createUser);
 
-router.patch("/users/:id/update", changeData)
+router.patch("/users/:id/update", changeData);
 
-router.delete("/users/:id/deleteUser",deleteUser )
+router.delete("/users/:id/deleteUser", deleteUser);
 
 export default router;

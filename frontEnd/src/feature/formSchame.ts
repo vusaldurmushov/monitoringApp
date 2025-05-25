@@ -2,7 +2,10 @@ import { z } from "zod";
 
 export const formSchema = z
   .object({
-    profileImg: z.string().optional(),
+profileImage: z
+    .instanceof(FileList)  // for raw input.files validation
+    .optional()
+    .or(z.instanceof(File).optional()), 
     username: z
       .string()
       .min(2, {

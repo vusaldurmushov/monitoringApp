@@ -1,6 +1,6 @@
 import type { TUser } from "@/types";
 
-export type Role = "admin" | "editor" | "user" | "guest" | "rehebrlik";
+export type Role = "admin" | "editor" | "user" | "guest" | "rehberlik";
 
 type RoleOption = {
   value: Role;
@@ -11,7 +11,7 @@ export const roleOptions: RoleOption[] = [
   { value: "editor", label: "Editor" },
   { value: "user", label: "User" },
   { value: "guest", label: "Guest" },
-  { value: "rehebrlik", label: "Rehebrlik" },
+  { value: "rehberlik", label: "Rehberlik" },
 ];
 
 export const monitoringInfo = [

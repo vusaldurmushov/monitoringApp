@@ -1,10 +1,33 @@
 import db from "../config/db.js";
-import { addUserDb, conflictDb, deleteDb, findUserDb, updateUserDb } from "../models/user.model.js";
+import {
+  addUserDb,
+  conflictDb,
+  deleteDb,
+  findUserDb,
+  updateUserDb,
+} from "../models/user.model.js";
 
 // add user to db
 export const createUser = async (req, res) => {
   try {
-    const newUser = await addUserDb(req.body);
+    const now = new Date();
+
+    const dateForCreated = now
+      .toLocaleString("en-GB", {
+        day: "2-digit",
+        month: "2-digit",
+        year: "numeric",
+        hour: "2-digit",
+        minute: "2-digit",
+        hour12: false,
+      })
+      .replace(/\//g, ".");
+
+    const userData = {
+      ...req.body,
+      dateForCreated,
+    };
+    const newUser = await addUserDb(userData);
     res
       .status(201)
       .json({ message: "User created successfully", user: newUser });
@@ -28,12 +51,13 @@ export const findUserfromDb = async (req, res) => {
 
   try {
     const user = await findUserDb(id);
+    console.log(user, "db findById");
 
     if (!user) {
       return res.status(404).send("User not found!");
     }
 
-    res.status(200).json(user);
+    res.status(200).send(user);
   } catch (error) {
     console.error("Error fetching user:", error);
     res.status(500).send("Internal server error");
@@ -54,35 +78,18 @@ export const getAllUsers = async (req, res) => {
 export const changeData = async (req, res) => {
   const { id } = req.params;
   console.log(id);
-  const usersUpdateInfo = req.body;
-console.log(usersUpdateInfo,'userIndo');
+  const usersUpdateInfo = {
+    ...req.body,
+    dateForUpdate: new Date().toISOString(), // set updated timestamp
+  };
+  console.log(usersUpdateInfo, "userIndo");
   if (!id) {
     return res.status(400).send("User ID not provided");
   }
 
   try {
-    // Check for conflict with existing user (excluding current one)
-console.log('try, catch');
-    const conflictUser = await db.findOne({
-      _id: { $ne: id.toString() },
-      $or: [
-        { username: usersUpdateInfo.username },
-        { email: usersUpdateInfo.email },
-      ],
-    });
-
-    console.log(conflictUser,'conflixtUxer');
-
-    // const conflictUser = await  conflictDb(id ,usersUpdateInfo )
-
-    if (conflictUser) {
-      return res
-        .status(400)
-        .send("This username or email is already in use by another user");
-    }
-
     // Update user
-    const result = await updateUserDb(id,usersUpdateInfo );
+    const result = await updateUserDb(id, usersUpdateInfo);
 
     if (result === 0) {
       return res.status(404).json({ message: "User not found" });
@@ -97,7 +104,6 @@ console.log('try, catch');
     res.status(500).json({ message: "Failed to update user", error });
   }
 };
-
 
 // DeelteUser
 

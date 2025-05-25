@@ -28,16 +28,44 @@ export const getUserById = async (id: string): Promise<TUser> => {
   }
 };
 
-
-
 export const createUser = async (data: TUser) => {
-  const response = await axios.post("http://localhost:3000/createUser", data);
-  return response.data;
+  try {
+    const response = await axios.post("http://localhost:3000/createUser", data);
+    return response.data;
+  } catch (error) {
+    throw new Error(
+      error instanceof Error ? error.message : "An unknown error occurred"
+    );
+  }
 };
 
 export const deleteUser = async (id: string) => {
-  const response = await axios.delete(
-    `http://localhost:3000/users/${id}/deleteUser`
-  );
-  return response.data;
+  try {
+    const response = await axios.delete(
+      `http://localhost:3000/users/${id}/deleteUser`
+    );
+    return response.data;
+  } catch (error) {
+    throw new Error(
+      error instanceof Error ? error.message : "An unknown error occurred"
+    );
+  }
+};
+
+export const updateUser = async (data: TUser) => {
+  console.log(data, "data in updateUser function");
+
+  if (!data._id) throw new Error("User ID is required to update");
+  try {
+    const response = await axios.patch(
+      `http://localhost:3000/users/${data._id}/update`,
+      data
+    );
+    console.log(response.data, "response.data in updateUser");
+    return response.data;
+  } catch (error) {
+    throw new Error(
+      error instanceof Error ? error.message : "An unknown error occurred"
+    );
+  }
 };

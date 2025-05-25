@@ -6,4 +6,6 @@ export type TUser = {
   username: string;
   role: Role;
   createdAt?: string;
+  profilImage?: string;
+  email?: string;
 };

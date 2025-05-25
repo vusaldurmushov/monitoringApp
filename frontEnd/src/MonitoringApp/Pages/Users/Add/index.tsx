@@ -1,27 +1,26 @@
 import { Button } from "@/components/ui/button";
-import { FormProvider, useForm, type SubmitHandler } from "react-hook-form";
+import { FormProvider, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { z } from "zod";
 import InputForm from "@/shared/InputForm";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import SelectForm from "@/shared/SelectForm";
 import { roleOptions } from "@/const";
 import { formSchema, type FormData } from "@/feature/formSchame";
 import { useCreateUser } from "@/services/hooks/post.user";
-import DotLoader from "react-spinners/DotLoader";
+import type { TUser } from "@/types";
+import SubmitButton from "./SubmitButton";
+import { SuccessAlert } from "../List/SuccessAlert";
 
-function AddUser({ user }) {
-  const [preview, setPreview] = useState<string | null>(null);
-  const mutation = useCreateUser();
+function AddUser({ user }: TUser | null) {
+  console.log(user, "`user` in AddUser component");
+  // const [preview, setPreview] = useState<string | null>(null);
 
   const methods = useForm<FormData>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      role: "admin",
+      // role: "admin",
     },
   });
-
-  console.log(user);
 
   useEffect(() => {
     if (user) {
@@ -30,70 +29,54 @@ function AddUser({ user }) {
         username: user.username,
         email: user.email,
         role: user.role,
-        profileImg: user.profileImage, // optional
+        // profileImage: user.profileImage, // optional
       });
-      setPreview(user.profileImage || null);
     }
   }, [user, methods]);
 
-  const onSubmit: SubmitHandler<FormData> = (data) => {
-    console.log("Form Data:", data);
-    mutation.mutate(data);
-    methods.reset();
-  };
+  const isEdit = !!user;
 
   return (
     <div className='h-full'>
-      <h1 className='font-medium pb-4'>CREATE PROFILE </h1>
+      <h1 className='font-medium pb-4'>
+        {isEdit ? "EDIT PROFILE" : "CREATE PROFILE"}
+      </h1>
 
       <FormProvider {...methods}>
         <div className='flex flex-col gap-4'>
           <InputForm
-            name='profileImg'
+            name='profileImage'
             label='Profile image'
             type='file'
             accept='image/*'
-            onChange={(e) => {
-              const file = e.target.files?.[0];
-              if (file) {
-                setPreview(URL.createObjectURL(file));
-              }
-            }}
           />
-          {preview && (
-            <img
-              src={preview}
-              alt='Preview'
-              className='w-32 h-32 object-cover rounded-full'
-            />
-          )}
+
           <InputForm name='name' label='Fullname' />
-          <InputForm name='username' label='Username' />
-          <InputForm name='email' label='Email' type='email' />
-          <InputForm name='password' label='Password' type='password' />
+          <InputForm name='username' label='Username' disabled={isEdit} />
+          <InputForm
+            name='email'
+            label='Email'
+            type='email'
+            disabled={isEdit}
+          />
+          <InputForm name='password' label='Password'  />
           <InputForm
             name='confirmPassword'
             label='Confirm password'
-            type='password'
           />
           <SelectForm
             name='role'
             label='Role'
-            value='Admin'
+            // value='Admin'
             placeholder='Admin'
             options={roleOptions}
             className='w-full'
           />
-
-          <Button
-            className='self-start'
-            onClick={methods.handleSubmit(onSubmit)}
-            type='submit'
-          >
-            Submit
-          </Button>
         </div>
+        <SubmitButton isEdit={isEdit} />
       </FormProvider>
+      <SuccessAlert/>
+
     </div>
   );
 }

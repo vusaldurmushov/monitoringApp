@@ -13,12 +13,13 @@ import {
   CollapsibleTrigger,
 } from "@/components/ui/collapsible";
 import { ChevronDown, type LucideIcon } from "lucide-react";
+import { SidebarMenuLink } from "@/MonitoringApp/SideBar/SidebarMenuLink"; // import the shared component
 
 export type TMenuItem = {
   title: string;
   url: string;
   icon: LucideIcon;
-  collapse?: TMenuItem[]; // recursive for nesting
+  collapse?: TMenuItem[];
 };
 
 type TSidebarMenuGroup = {
@@ -29,20 +30,22 @@ type TSidebarMenuGroup = {
 export function SidebarMenuGroup({ label, items }: TSidebarMenuGroup) {
   return (
     <>
-      <SidebarGroupLabel className='text-white hover:text-[var(--sidebar-primary)]'>{label}</SidebarGroupLabel>
+      <SidebarGroupLabel className='text-white hover:text-[var(--sidebar-primary)]'>
+        {label}
+      </SidebarGroupLabel>
       <SidebarGroupContent>
         <SidebarMenu>
           {items.map((item) => (
-            <SidebarMenuItem className="hover:text-[var(--sidebar-primary)] " key={item.title}>
-              {item?.collapse ? (
+            <SidebarMenuItem key={item.title}>
+              {item.collapse ? (
                 <Collapsible>
-                  <CollapsibleTrigger className=' group flex items-center w-full'>
-                    <SidebarMenuButton className='flex-1 justify-between hover:text-[var(--sidebar-primary)] '>
-                      <div className='flex items-center'>
-                        <item.icon className='mr-4 h-4 w-4 text-white hover:text-[var(--sidebar-primary)]' />
-                        <span className='text-white hover:text-[var(--sidebar-primary)]'>{item.title}</span>
+                  <CollapsibleTrigger className='group flex items-center w-full'>
+                    <SidebarMenuButton className=' group flex-1 justify-between !p-0'>
+                      <div className='group flex items-center text-white  hover:text-[var(--sidebar-primary)] '>
+                        <item.icon className='mr-4 h-4 w-4 text-inherit' />
+                        <span className='text-inherit '>{item.title}</span>
                       </div>
-                      <ChevronDown className='transition-transform group-data-[state=open]:rotate-180 text-white ' />
+                      <ChevronDown className='transition-transform group-data-[state=open]:rotate-180 text-white' />
                     </SidebarMenuButton>
                   </CollapsibleTrigger>
                   <CollapsibleContent>
@@ -52,15 +55,12 @@ export function SidebarMenuGroup({ label, items }: TSidebarMenuGroup) {
                           {item.collapse.map((subItem) => (
                             <SidebarMenuItem key={subItem.title}>
                               <SidebarMenuButton asChild>
-                                <a
+                                <SidebarMenuLink
                                   href={subItem.url}
-                                  className='flex items-center'
-                                >
-                                  <subItem.icon className=' scale-60 w-3 h-3 mr-2 text-white hover:text-[var(--sidebar-primary)]' />
-                                  <span className='text-white hover:text-[var(--sidebar-primary)]'>
-                                    {subItem.title}
-                                  </span>
-                                </a>
+                                  icon={subItem.icon}
+                                  title={subItem.title}
+                                  small
+                                />
                               </SidebarMenuButton>
                             </SidebarMenuItem>
                           ))}
@@ -71,12 +71,11 @@ export function SidebarMenuGroup({ label, items }: TSidebarMenuGroup) {
                 </Collapsible>
               ) : (
                 <SidebarMenuButton asChild>
-                  <a href={item.url} className='flex items-center text-white hover:text-[var(--sidebar-primary)] '>
-                    {item?.icon && (
-                      <item.icon className='  h-4 w-4 mr-2 text-white hover:text-[var(--sidebar-primary)] ' />
-                    )}
-                    <span className='text-white hover:text-[var(--sidebar-primary)]  '>{item.title}</span>
-                  </a>
+                  <SidebarMenuLink
+                    href={item.url}
+                    icon={item.icon}
+                    title={item.title}
+                  />
                 </SidebarMenuButton>
               )}
             </SidebarMenuItem>

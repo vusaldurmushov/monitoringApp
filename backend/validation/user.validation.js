@@ -5,6 +5,7 @@ export const postSchema = Joi.object({
   name: Joi.string().min(3).required(),
   username: Joi.string().min(3).required(),
   email: Joi.string().email().required(),
+  dateForCreated: Joi.string().optional(), 
   password: Joi.string()
     .min(8)
     .pattern(/^(?=.*[A-Z])(?=.*[!@#$%^&*(),.?":{}|<>]).*$/)

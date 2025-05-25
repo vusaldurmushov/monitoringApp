@@ -21,7 +21,7 @@ export const columns: ColumnDef<TUser>[] = [
     header: "Role",
   },
   {
-    accessorKey: "createdAt",
+    accessorKey: "dateForCreated",
     header: "Created",
   },
   {
