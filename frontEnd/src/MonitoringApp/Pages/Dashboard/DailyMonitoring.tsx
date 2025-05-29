@@ -13,8 +13,8 @@ function DailyMonitoring() {
           <CardContent className="p-4">
             <div className="flex flex-col text-center">
               <p>
-                Tamkart partnyorlar:{" "}
-                <span className="font-[600]">{item.TamkartPartnyorlar}</span>{" "}
+                BestCartPartnyorlar partnyorlar:{" "}
+                <span className="font-[600]">{item.BestCartPartnyorlar}</span>{" "}
               </p>
               <p>
                 Partnyor olmayanlar:{" "}

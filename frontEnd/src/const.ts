@@ -16,28 +16,28 @@ export const monitoringInfo = [
   {
     title: "Günlük monitorinq",
     count: 1,
-    TamkartPartnyorlar: 1,
+    BestCartPartnyorlar: 1,
     PartnyouOlmayanlar: 0,
     NoInfo: 0,
   },
   {
     title: "Aylıq monitorinq",
     count: 2000,
-    TamkartPartnyorlar: 1063,
+    BestCartPartnyorlar: 1063,
     PartnyouOlmayanlar: 958,
     NoInfo: 9,
   },
   {
     title: "Ümumi monitorinq",
     count: 28567,
-    TamkartPartnyorlar: 14309,
+    BestCartPartnyorlar: 14309,
     PartnyouOlmayanlar: 15456,
     NoInfo: 1134,
   },
 ];
 
 export const adStats = {
-  title: "Tamkart partnyorlara görə reklam statistikası",
+  title: "BestCartPartnyorlar partnyorlara görə reklam statistikası",
   statistics: {
     "Cari Gün ərzində əlavə olunanlar arasında": [
       { name: "Qapıda asılqan", quantity: 1 },
