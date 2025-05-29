@@ -8,4 +8,5 @@ export type TUser = {
   createdAt?: string;
   profilImage?: string;
   email?: string;
+  dateForCreated?: string;
 };
