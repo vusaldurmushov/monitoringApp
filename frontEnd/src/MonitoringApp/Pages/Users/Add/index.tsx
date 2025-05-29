@@ -1,4 +1,3 @@
-import { Button } from "@/components/ui/button";
 import { FormProvider, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import InputForm from "@/shared/InputForm";
@@ -6,12 +5,16 @@ import { useEffect } from "react";
 import SelectForm from "@/shared/SelectForm";
 import { roleOptions } from "@/const";
 import { formSchema, type FormData } from "@/feature/formSchame";
-import { useCreateUser } from "@/services/hooks/post.user";
+// import { useCreateUser } from "@/services/hooks/post.user";
 import type { TUser } from "@/types";
 import SubmitButton from "./SubmitButton";
 import { SuccessAlert } from "../List/SuccessAlert";
 
-function AddUser({ user }: TUser | null) {
+type TAddUser = {
+  user?: TUser | null;
+};
+
+function AddUser({ user }: TAddUser) {
   console.log(user, "`user` in AddUser component");
   // const [preview, setPreview] = useState<string | null>(null);
 
@@ -37,46 +40,42 @@ function AddUser({ user }: TUser | null) {
   const isEdit = !!user;
 
   return (
-    <div className='h-full'>
-      <h1 className='font-medium pb-4'>
+    <div className="h-full">
+      <h1 className="font-medium pb-4">
         {isEdit ? "EDIT PROFILE" : "CREATE PROFILE"}
       </h1>
 
       <FormProvider {...methods}>
-        <div className='flex flex-col gap-4'>
-          <InputForm
+        <div className="flex flex-col gap-4">
+          {/* <InputForm
             name='profileImage'
             label='Profile image'
             type='file'
             accept='image/*'
-          />
+          /> */}
 
-          <InputForm name='name' label='Fullname' />
-          <InputForm name='username' label='Username' disabled={isEdit} />
+          <InputForm name="name" label="Fullname" />
+          <InputForm name="username" label="Username" disabled={isEdit} />
           <InputForm
-            name='email'
-            label='Email'
-            type='email'
+            name="email"
+            label="Email"
+            type="email"
             disabled={isEdit}
           />
-          <InputForm name='password' label='Password'  />
-          <InputForm
-            name='confirmPassword'
-            label='Confirm password'
-          />
+          <InputForm name="password" label="Password" />
+          <InputForm name="confirmPassword" label="Confirm password" />
           <SelectForm
-            name='role'
-            label='Role'
+            name="role"
+            label="Role"
             // value='Admin'
-            placeholder='Admin'
+            placeholder="Admin"
             options={roleOptions}
-            className='w-full'
+            className="w-full"
           />
         </div>
         <SubmitButton isEdit={isEdit} />
       </FormProvider>
-      <SuccessAlert/>
-
+      <SuccessAlert />
     </div>
   );
 }

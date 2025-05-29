@@ -33,7 +33,9 @@ export const createUser = async (req, res) => {
       .json({ message: "User created successfully", user: newUser });
   } catch (error) {
     if (error.errorType === "uniqueViolated") {
-      return res.status(400).json({ error: "Username already exists" });
+      return res
+        .status(400)
+        .json({ success: false, message: "Username or email already exists" });
     }
     console.error("Create user failed:", error);
     res.status(500).json({ error: "Failed to connect user" });

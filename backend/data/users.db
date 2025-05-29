@@ -1,14 +1,9 @@
-{"$$deleted":true,"_id":"3A66Oq4gh4B1Q6HT"}
-{"$$deleted":true,"_id":"BpWUnUFGT6zERDwd"}
-{"$$deleted":true,"_id":"KWqPVV7xiefz4a7P"}
-{"$$deleted":true,"_id":"MuD4LgEGtaUPvIvM"}
-{"$$deleted":true,"_id":"NtvNf9xKdDe49y0S"}
-{"$$deleted":true,"_id":"RPP4twsAtRRfEJNc"}
-{"$$deleted":true,"_id":"TTNhCRVJFyzWXQeo"}
-{"$$deleted":true,"_id":"Uz1JCo0ifzcrfZDx"}
-{"$$deleted":true,"_id":"vgkyKOVVnC3RLCm1"}
-{"$$deleted":true,"_id":"rtzBMhy6PFAi2rLq"}
-{"$$deleted":true,"_id":"jbk32DZbycUQpK6M"}
-{"$$deleted":true,"_id":"YpBKsoJbZrrPe23d"}
-{"$$deleted":true,"_id":"WmRfx9MND5hwjGWP"}
+{"username":"luvowymok","name":"Adena Matthews","email":"mumemes@mailinator.com","role":"user","password":"1453Vusal!","confirmPassword":"1453Vusal!","dateForCreated":"29.05.2025, 08:57","_id":"KRsM7dCJGhmi24qP"}
 {"username":"vusal.durmushov","name":"Vusal Durmushov","email":"vusal@gmail.com","role":"rehberlik","password":"1453Vusal!","confirmPassword":"1453Vusal!","dateForCreated":"25.05.2025, 17:31","_id":"MBvNcLoiQHvWQ83i"}
+{"username":"macepyb","name":"Steel Little","email":"hogaxogeb@mailinator.com","role":"user","password":"1453Vusal!","confirmPassword":"1453Vusal!","dateForCreated":"29.05.2025, 09:05","_id":"Mc5uL2wg0zaA3F33"}
+{"username":"vusal.alasgarov1","name":"Vusal Alasgarov","email":"vusal.alasgarov2@abb-bank.az","role":"admin","password":"1453Vusal!","confirmPassword":"1453Vusal!","dateForCreated":"29.05.2025, 08:48","_id":"WJ3SK9BfmQYa634N"}
+{"username":"vusal.alasgarov","name":"Vusal Alasgarov","email":"vusal.alasgarov@abb-bank.az","role":"editor","password":"1453Vusal!","confirmPassword":"1453Vusal!","dateForCreated":"29.05.2025, 08:13","_id":"bf79cjh87eKc1xTz"}
+{"$$indexCreated":{"fieldName":"username","unique":true,"sparse":false}}
+{"$$indexCreated":{"fieldName":"email","unique":true,"sparse":false}}
+{"$$indexCreated":{"fieldName":"username","unique":true}}
+{"$$indexCreated":{"fieldName":"email","unique":true}}

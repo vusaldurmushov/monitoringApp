@@ -28,14 +28,19 @@ export const getUserById = async (id: string): Promise<TUser> => {
   }
 };
 
+
 export const createUser = async (data: TUser) => {
   try {
     const response = await axios.post("http://localhost:3000/createUser", data);
     return response.data;
   } catch (error) {
-    throw new Error(
-      error instanceof Error ? error.message : "An unknown error occurred"
-    );
+    if (axios.isAxiosError(error)) {
+      const message = error.response?.data?.message || error.message || "An unknown error occurred";
+      throw new Error(message); // now the message can be used in `onError`
+    }
+
+    // fallback for non-Axios errors
+    throw new Error("An unknown error occurred");
   }
 };
 

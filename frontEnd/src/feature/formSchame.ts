@@ -2,10 +2,11 @@ import { z } from "zod";
 
 export const formSchema = z
   .object({
-profileImage: z
-    .instanceof(FileList)  // for raw input.files validation
-    .optional()
-    .or(z.instanceof(File).optional()), 
+    // profileImage: z
+    //     .instanceof(FileList)
+    //     .optional()
+    //     .or(z.instanceof(File).optional()),
+
     username: z
       .string()
       .min(2, {
@@ -14,7 +15,7 @@ profileImage: z
       .nullable(),
     name: z.string().optional(),
     email: z.string().email().optional(),
-    role: z.string().optional(),
+    role: z.string(),
     password: z.string().optional(),
     confirmPassword: z.string().optional(),
   })
@@ -28,5 +29,4 @@ profileImage: z
     }
   });
 
-
-  export type FormData = z.infer<typeof formSchema>;
+export type FormData = z.infer<typeof formSchema>;
