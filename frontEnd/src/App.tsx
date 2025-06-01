@@ -8,11 +8,13 @@ import AddUser from "@/MonitoringApp/Pages/Users/Add";
 import UserList from "@/MonitoringApp/Pages/Users/List";
 import Edit from "@/MonitoringApp/Pages/Users/Edit";
 import { ToastContainer } from "react-toastify";
+import Login from "./MonitoringApp/Pages/Login";
 // import NotFound from "@/components/NotFound404";
 
 function App() {
   return (
     <div className='font-display '>
+      <Login/>
       <Profile />
       <SidebarProvider>
         <div className='flex w-full'>

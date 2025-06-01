@@ -1,4 +1,4 @@
-import db from "../config/db.js";
+import { db } from "../config/db.js";
 import {
   addUserDb,
   conflictDb,
@@ -6,9 +6,11 @@ import {
   findUserDb,
   updateUserDb,
 } from "../models/user.model.js";
+import bcrypt from "bcrypt";
 
 // add user to db
 export const createUser = async (req, res) => {
+  const { password } = req.body;
   try {
     const now = new Date();
 
@@ -23,10 +25,14 @@ export const createUser = async (req, res) => {
       })
       .replace(/\//g, ".");
 
+    const hashedPassword = await bcrypt.hash(password, 10);
+
     const userData = {
       ...req.body,
+      password: hashedPassword,
       dateForCreated,
     };
+    delete userData.confirmPassword;
     const newUser = await addUserDb(userData);
     res
       .status(201)

@@ -3,7 +3,7 @@ import { DataTable } from "./data-table";
 import { useUsers } from "@/services/hooks/get.users";
 import { SuccessAlert } from "./SuccessAlert";
 import { Toaster } from "sonner";
-import { CustomSuccessToast } from "@/components/CustomToast";
+import { CustomSuccessToast } from "@/shared/CustomToast";
 
 export default function DemoPage() {
   const { data, isLoading, error } = useUsers();
