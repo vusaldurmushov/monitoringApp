@@ -1,12 +1,12 @@
 import "./App.css";
-import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
-import { AppSidebar } from "@/MonitoringApp/SideBar/AppSideBar";
-import Profile from "./MonitoringApp/Profile/Profile";
-import Dashboard from "./MonitoringApp/Pages/Dashboard";
-import { Routes, Route } from "react-router-dom";
-import AddUser from "@/MonitoringApp/Pages/Users/Add";
-import UserList from "@/MonitoringApp/Pages/Users/List";
-import Edit from "@/MonitoringApp/Pages/Users/Edit";
+// import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
+// import { AppSidebar } from "@/MonitoringApp/SideBar/AppSideBar";
+// import Profile from "./MonitoringApp/Profile/Profile";
+// import Dashboard from "./MonitoringApp/Pages/Dashboard";
+// import { Routes, Route } from "react-router-dom";
+// import AddUser from "@/MonitoringApp/Pages/Users/Add";
+// import UserList from "@/MonitoringApp/Pages/Users/List";
+// import Edit from "@/MonitoringApp/Pages/Users/Edit";
 import { ToastContainer } from "react-toastify";
 import Login from "./MonitoringApp/Pages/Login";
 // import NotFound from "@/components/NotFound404";
@@ -15,7 +15,7 @@ function App() {
   return (
     <div className='font-display '>
       <Login/>
-      <Profile />
+      {/* <Profile />
       <SidebarProvider>
         <div className='flex w-full'>
           <AppSidebar />
@@ -31,7 +31,7 @@ function App() {
             </Routes>
           </div>
         </div>
-      </SidebarProvider>
+      </SidebarProvider> */}
       <ToastContainer />
       {/* <NotFound/> */}
     </div>
