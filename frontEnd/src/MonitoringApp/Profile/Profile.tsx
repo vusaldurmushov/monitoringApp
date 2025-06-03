@@ -5,8 +5,16 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
+import { useNavigate } from "react-router-dom";
 
 function Profile() {
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    localStorage.clear();
+    navigate("/login");
+  };
+
   return (
     <div className='flex justify-end border-b shadow-md p-3 '>
       <Popover>
@@ -33,7 +41,11 @@ function Profile() {
                 <User className='mr-2 h-4 w-4' />
                 Profile
               </Button>
-              <Button variant='ghost' className='flex justify-start w-full '>
+              <Button
+                onClick={handleLogout}
+                variant='ghost'
+                className='flex justify-start w-full '
+              >
                 {" "}
                 <LogOut className='mr-2 h-4 w-4' />
                 Logout

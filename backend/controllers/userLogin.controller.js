@@ -8,7 +8,11 @@ export const userLogin = async (req, res) => {
 
   const user = await db.findOne({ username });
 
-  if (!user || !(await bcrypt.compare(password, user.password)))
+  if (!user) {
+    return res.status(400).send("We can't find this user!" );
+  }
+
+  if (!user.username || !(await bcrypt.compare(password, user.password)))
     return res.status(400).send({ error: "Invalid credentials" });
 
   const payload = { id: user._id, email: user.email };
