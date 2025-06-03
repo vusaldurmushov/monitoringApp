@@ -9,7 +9,7 @@ export default function ProtectedLayout() {
     <SidebarProvider>
       <div className='flex w-full'>
         <AppSidebar />
-        <main className='flex-1 p-4 relative -top-[60px]'>
+        <main className='flex-1 p-4  relative -top-[60px]'>
           <SidebarTrigger />
            <Profile />
           <Outlet />

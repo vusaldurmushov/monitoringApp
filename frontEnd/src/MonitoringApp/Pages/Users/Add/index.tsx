@@ -41,7 +41,7 @@ function AddUser({ user }: TAddUser) {
 
   return (
     <div className="h-full">
-      <h1 className="font-medium pb-4">
+      <h1 className="font-medium p-4">
         {isEdit ? "EDIT PROFILE" : "CREATE PROFILE"}
       </h1>
 

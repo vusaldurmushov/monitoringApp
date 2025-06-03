@@ -16,7 +16,7 @@ function Profile() {
   };
 
   return (
-    <div className='flex justify-end border-b shadow-md p-3 '>
+    <div className='flex justify-end border-b shadow-md p-3  mt-[20px]'>
       <Popover>
         <PopoverTrigger asChild>
           <Button variant='ghost'>

@@ -4,7 +4,7 @@ export const tokenCreate = async (req, res) => {
     const refreshToken = req.cookies.refreshToken;
 //   console.log(req.body);
 //   const refreshToken = req.body.refreshToken;
-  if (!refreshToken) return res.status(401).send("refresh token is required");
+  if (!refreshToken) return res.status(401).send("refresh token is not found");
 
   let tokenDb;
 
