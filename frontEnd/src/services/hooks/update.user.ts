@@ -8,13 +8,19 @@ export const useUpdateUser = () => {
 
   return useMutation({
     mutationFn: updateUser,
-   onSuccess: () => {
-    queryClient.invalidateQueries({ queryKey: userKeys.all }); // Refresh user list
-    toast.success("User created successfully!"); // Success toast
-  },
-  onError: (error) => {
-    console.error("Create user failed:", error);
-    toast.error(`Create user failed: ${error instanceof Error ? error.message : 'Unknown error'}`); // Error toast
-  }
+    onSuccess: () => {
+      queryClient.invalidateQueries({
+        queryKey: [userKeys.all, "paginateUsers"],
+      }); // Refresh user list
+      toast.success("User created successfully!"); // Success toast
+    },
+    onError: (error) => {
+      console.error("Create user failed:", error);
+      toast.error(
+        `Create user failed: ${
+          error instanceof Error ? error.message : "Unknown error"
+        }`
+      ); // Error toast
+    },
   });
 };

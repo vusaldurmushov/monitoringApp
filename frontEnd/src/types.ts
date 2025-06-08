@@ -10,3 +10,9 @@ export type TUser = {
   email?: string;
   dateForCreated?: string;
 };
+
+
+export type TPaginationPage = {
+  pageIndex: number;
+  pageSize: number;
+};

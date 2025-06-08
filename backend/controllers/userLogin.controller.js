@@ -1,4 +1,4 @@
-import { db } from "../config/db.js";
+import { db } from "../config/userDb.js";
 import bcrypt from "bcrypt";
 import { tokenDB } from "../config/tokenDb.js";
 import jwt from "jsonwebtoken";
@@ -9,7 +9,7 @@ export const userLogin = async (req, res) => {
   const user = await db.findOne({ username });
 
   if (!user) {
-    return res.status(400).send("We can't find this user!" );
+    return res.status(400).send("We can't find this user!");
   }
 
   if (!user.username || !(await bcrypt.compare(password, user.password)))

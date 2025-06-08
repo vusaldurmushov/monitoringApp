@@ -9,7 +9,13 @@ import {
   deleteUser,
 } from "../controllers/user.controller.js";
 import { postSchema } from "../validation/user.validation.js";
-import { tokenCreate, userLogin } from "../controllers/main.controller.js";
+import {
+  paginationController,
+  tokenCreate,
+  userLogin,
+} from "../controllers/main.controller.js";
+import { paginationMiddlewares } from "../middlewares/userPagination/paginationMiddleware.js";
+import { fetchUsersMiddleware } from "../middlewares/userPagination/fetchUsersMiddleware.js";
 
 const router = express.Router();
 
@@ -28,5 +34,13 @@ router.post("/createUser", validate(postSchema), createUser);
 router.patch("/users/:id/update", changeData);
 
 router.delete("/users/:id/deleteUser", deleteUser);
+
+// for pagination
+router.get(
+  "/users",
+  fetchUsersMiddleware,
+  paginationMiddlewares,
+  paginationController
+);
 
 export default router;

@@ -12,21 +12,21 @@ export const getAllUsers = async (): Promise<TUser[]> => {
   }
 };
 
+
+// Make sure to import your TUser type if not already
+
 export const getUserById = async (id: string): Promise<TUser> => {
   try {
-    const response = await fetch(`http://localhost:3000/users/${id}/edit`);
-
-    if (!response.ok) {
-      throw new Error("User not found");
-    }
-
-    return await response.json();
+    const response = await axios.get<TUser>(`http://localhost:3000/users/${id}/edit`);
+    return response.data;
   } catch (error) {
-    throw new Error(
-      error instanceof Error ? error.message : "An unknown error occurred"
-    );
+    if (axios.isAxiosError(error)) {
+      throw new Error(error.response?.data?.message || "User not found");
+    }
+    throw new Error("An unknown error occurred");
   }
 };
+
 
 
 export const createUser = async (data: TUser) => {

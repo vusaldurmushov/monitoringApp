@@ -1,22 +1,33 @@
+import { useState } from "react";
 import { columns } from "./columns";
 import { DataTable } from "./data-table";
-import { useUsers } from "@/services/hooks/get.users";
-import { SuccessAlert } from "./SuccessAlert";
-import { Toaster } from "sonner";
-import { CustomSuccessToast } from "@/shared/CustomToast";
+
+import { usePaginateUser } from "@/services/hooks/paginate.user";
+import type { TPaginationPage, TUser } from "@/types";
 
 export default function DemoPage() {
-  const { data, isLoading, error } = useUsers();
+  const [pagination, setPagination] = useState<TPaginationPage>({
+    pageIndex: 0,
+    pageSize: 5,
+  });
+
+  const {
+    data: PaginateData,
+    isLoading,
+    error,
+  } = usePaginateUser(pagination.pageIndex + 1, pagination.pageSize);
 
   if (isLoading) return <div>Loading...</div>;
   if (error) return <div>Error occurred</div>;
 
   return (
     <div className='container mx-auto py-10'>
-      <DataTable columns={columns} data={data ?? []} />
-      {/* <pre className='mt-6 bg-gray-100 p-4 rounded'>
-        {JSON.stringify(data, null, 2)}
-      </pre> */}
+      <DataTable<TUser>
+        columns={columns}
+        PaginateData={PaginateData ?? []}
+        pagination={pagination}
+        setPagination={setPagination}
+      />
     </div>
   );
 }
