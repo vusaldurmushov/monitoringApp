@@ -1,10 +1,10 @@
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
-import Dashboard from "./MonitoringApp/Pages/Dashboard";
-import AddUser from "@/MonitoringApp/Pages/Users/Add";
-import UserList from "@/MonitoringApp/Pages/Users/List";
-import Edit from "@/MonitoringApp/Pages/Users/Edit";
-import Login from "./MonitoringApp/Pages/Login";
+import Dashboard from "./components/MonitoringApp/Pages/Dashboard";
+import AddUser from "@/components/MonitoringApp/Pages/Users/Add";
+import UserList from "@/components/MonitoringApp/Pages/Users/List";
+import Edit from "@/components/MonitoringApp/Pages/Users/Edit";
+import Login from "./components/MonitoringApp/Pages/Login";
 import ProtectedRoute from "./components/ProtectedRoute";
 import ProtectedLayout from "./components/ProtectedLayout"; // <- new
 

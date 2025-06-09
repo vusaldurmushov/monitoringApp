@@ -1,6 +1,5 @@
-import { userKeys } from '@/services/queries/user.queryKeys';
-import { useMutation, useQueryClient } from '@tanstack/react-query';
-import { deleteUser } from '../api/user.api';
+import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { deleteUser } from "../api/userApi";
 
 export const useDeleteUser = () => {
   const queryClient = useQueryClient();
@@ -8,10 +7,12 @@ export const useDeleteUser = () => {
   return useMutation({
     mutationFn: deleteUser,
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: userKeys.all }); // refresh user list
+      queryClient.invalidateQueries({
+        queryKey: ["paginateUsers"],
+      }); // refresh paginateUsers user list
     },
     onError: (error) => {
       console.error("Delete user failed:", error);
-    }
+    },
   });
 };

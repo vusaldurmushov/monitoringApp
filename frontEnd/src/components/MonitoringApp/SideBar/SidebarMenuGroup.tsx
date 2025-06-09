@@ -13,7 +13,7 @@ import {
   CollapsibleTrigger,
 } from "@/components/ui/collapsible";
 import { ChevronDown, type LucideIcon } from "lucide-react";
-import { SidebarMenuLink } from "@/MonitoringApp/SideBar/SidebarMenuLink"; // import the shared component
+import { SidebarMenuLink } from "@/components/MonitoringApp/SideBar/SidebarMenuLink"; // import the shared component
 
 export type TMenuItem = {
   title: string;

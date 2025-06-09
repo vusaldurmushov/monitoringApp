@@ -1,6 +1,14 @@
 import { Home, Folder, Circle, Users } from "lucide-react";
 
-import { Sidebar, SidebarContent, SidebarGroup } from "@/components/ui/sidebar";
+import {
+  Sidebar,
+  SidebarContent,
+  SidebarGroup,
+  SidebarMenu,
+  SidebarMenuButton,
+  SidebarMenuItem,
+} from "@/components/ui/sidebar";
+import { Calendar, Inbox, Search, Settings } from "lucide-react";
 
 import { SidebarMenuGroup } from "./SidebarMenuGroup";
 
@@ -43,19 +51,56 @@ const items2 = [
   },
 ];
 
+const itemss = [
+  {
+    title: "Home",
+    url: "#",
+    icon: Home,
+  },
+  {
+    title: "Inbox",
+    url: "#",
+    icon: Inbox,
+  },
+  {
+    title: "Calendar",
+    url: "#",
+    icon: Calendar,
+  },
+  {
+    title: "Search",
+    url: "#",
+    icon: Search,
+  },
+  {
+    title: "Settings",
+    url: "#",
+    icon: Settings,
+  },
+];
+
 export function AppSidebar() {
   return (
-    <Sidebar
-      collapsible='icon'
-      className='bg-[var(--sidebar-background)]'
-    >
+    <Sidebar collapsible='icon' className='bg-[var(--sidebar-background)]'>
       <div className='border-b-[1px]  bg-[var(--sidebar-background)]  '>
         <h1 className=' text-xl text-center py-4  group-data-[state=collapsed]:hidden text-[var(--sidebar-primary)]'>
-          Monitoring  <span className='font-semibold text-white'>App</span>
+          Monitoring <span className='font-semibold text-white'>App</span>
         </h1>
       </div>
       <SidebarContent className='bg-[var(--sidebar-background)]'>
         <SidebarGroup className='flex gap-3'>
+          <SidebarMenu>
+            {itemss.map((item) => (
+              <SidebarMenuItem key={item.title}>
+                <SidebarMenuButton asChild>
+                  <a href={item.url}>
+                    <item.icon color="white" />
+                    <span className="text-white">{item.title}</span>
+                  </a>
+                </SidebarMenuButton>
+              </SidebarMenuItem>
+            ))}
+          </SidebarMenu>
           <SidebarMenuGroup label='ƏSAS' items={items} />
           <SidebarMenuGroup label='WEB APPS' items={items2} />
         </SidebarGroup>

@@ -1,5 +1,5 @@
-import AddUser from "@/MonitoringApp/Pages/Users/Add";
-import About from "@/MonitoringApp/Pages/Users/Edit/About";
+import AddUser from "@/components/MonitoringApp/Pages/Users/Add";
+import About from "@/components/MonitoringApp/Pages/Users/Edit/About";
 import { GetUser } from "@/services/hooks/get.userId";
 import { useParams } from "react-router-dom";
 

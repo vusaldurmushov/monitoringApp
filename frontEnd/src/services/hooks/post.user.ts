@@ -1,7 +1,6 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { toast } from "react-toastify";
-import { createUser } from "../api/user.api";
-import { userKeys } from "../queries/user.queryKeys";
+import { createUser } from "../api/userApi";
 import type { FieldValues, UseFormReturn } from "react-hook-form";
 
 interface UseCreateUserOptions<T extends FieldValues> {
@@ -17,7 +16,9 @@ export const useCreateUser = <T extends FieldValues = FieldValues>(
   return useMutation({
     mutationFn: createUser,
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: userKeys.all });
+      queryClient.invalidateQueries({
+        queryKey: ["paginateUsers"],
+      });
       toast.success("User created successfully!");
       if (methods?.reset) {
         methods.reset();

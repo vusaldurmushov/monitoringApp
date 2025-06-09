@@ -1,6 +1,5 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { userKeys } from "../queries/user.queryKeys";
-import { updateUser } from "../api/user.api";
+import { updateUser } from "../api/userApi";
 import { toast } from "sonner";
 
 export const useUpdateUser = () => {
@@ -10,7 +9,7 @@ export const useUpdateUser = () => {
     mutationFn: updateUser,
     onSuccess: () => {
       queryClient.invalidateQueries({
-        queryKey: [userKeys.all, "paginateUsers"],
+        queryKey: ["paginateUsers"],
       }); // Refresh user list
       toast.success("User created successfully!"); // Success toast
     },

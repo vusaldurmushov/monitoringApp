@@ -1,4 +1,4 @@
-import axios, { AxiosError } from "axios";
+import { request } from "@/lib/request";
 
 type TLoginInfo = {
   username: string;
@@ -6,20 +6,9 @@ type TLoginInfo = {
 };
 
 export const loginUser = async (loginInfo: TLoginInfo) => {
-  console.log(loginInfo);
-  if (!loginInfo) throw new Error("Login info is required");
-
-  try {
-    const response = await axios.post("http://localhost:3000/login", loginInfo);
-    return response;
-  } catch (error) {
-    const axiosError = error as AxiosError;
-
-    const message =
-      axiosError.response?.data && typeof axiosError.response.data === "string"
-        ? axiosError.response.data
-        : "An unknown error occurred";
-
-    throw new Error(message);
-  }
+  return request<TLoginInfo>({
+    method: "POST",
+    url: "login",
+    data: loginInfo,
+  });
 };
