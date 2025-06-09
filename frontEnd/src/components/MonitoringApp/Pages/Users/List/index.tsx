@@ -24,7 +24,7 @@ export default function DemoPage() {
     <div className='container mx-auto py-10'>
       <DataTable<TUser>
         columns={columns}
-        PaginateData={PaginateData ?? []}
+        PaginateData={PaginateData }
         pagination={pagination}
         setPagination={setPagination}
       />

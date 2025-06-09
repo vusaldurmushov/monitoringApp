@@ -9,6 +9,7 @@ import ProtectedRoute from "./components/ProtectedRoute";
 import ProtectedLayout from "./components/ProtectedLayout"; // <- new
 
 import { ToastContainer } from "react-toastify";
+import UserInfo from "./components/MonitoringApp/Pages/Users/Edit/UserInfo";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
             <Route path='/addUser' element={<AddUser />} />
             <Route path='/userlist' element={<UserList />} />
             <Route path='/users/:id/edit' element={<Edit />} />
+            <Route path='/users/:id/info' element={<UserInfo />} />
           </Route>
         </Route>
 

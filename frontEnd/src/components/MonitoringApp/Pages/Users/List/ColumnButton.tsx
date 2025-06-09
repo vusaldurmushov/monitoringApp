@@ -10,11 +10,7 @@ function ColumnButton({ user }: { user: TUser }) {
 
   return (
     <div className='flex items-center'>
-      <Link
-        to={`/users/${user._id}/edit`}
-        className='text-[#0056c3]'
-        onClick={() => console.log("Edit", user._id)}
-      >
+      <Link to={`/users/${user._id}/edit`} className='text-[#0056c3]'>
         <Pencil className='scale-[0.75]' />
       </Link>
       <AlertDialogDemo onConfirm={() => deleteUser(user._id)}>
