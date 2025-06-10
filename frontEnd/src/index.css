@@ -115,6 +115,8 @@ body {
   --sidebar-ring: oklch(0.708 0 0);
   /* --sidebar-background: 0 0% 98%; */
   --sidebar-background: #0c1427;
+  --sidebar-secondary-background: #f9fafb;
+  --sidebar-third-background: #FF0D49;
   /* --sidebar-background: oklch(0.1736 0.0152 264.63); */
 
   --sidebar-foreground: 240 5.3% 26.1%;

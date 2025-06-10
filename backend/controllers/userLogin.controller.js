@@ -8,6 +8,7 @@ export const userLogin = async (req, res) => {
 
   const user = await db.findOne({ username });
 
+  console.log("🚀 ~ userLogin ~ user:", user);
   if (!user) {
     return res.status(400).send("We can't find this user!");
   }
@@ -16,6 +17,8 @@ export const userLogin = async (req, res) => {
     return res.status(400).send({ error: "Invalid credentials" });
 
   const payload = { id: user._id, email: user.email };
+
+  console.log(process.env.ACCESS_SECRET);
 
   const accessToken = jwt.sign(payload, process.env.ACCESS_SECRET, {
     expiresIn: "15s",

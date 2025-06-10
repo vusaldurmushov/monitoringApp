@@ -7,9 +7,9 @@ import { Outlet } from "react-router-dom";
 export default function ProtectedLayout() {
   return (
     <SidebarProvider>
-      <div className='flex w-full'>
+      <div className="flex w-full">
         <AppSidebar />
-        <main className='flex-1 p-4  relative '>
+        <main className="flex-1 p-4  relative bg-[var(--sidebar-secondary-background)] ">
           <SidebarTrigger />
           <Profile />
           <Outlet />

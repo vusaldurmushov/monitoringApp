@@ -11,7 +11,7 @@ export const useLoginUser = () => {
       console.log("Mutating with", vars);
     },
     onSuccess: (res) => {
-      localStorage.setItem("accessToken", res?.data.accessToken);
+      localStorage.setItem("accessToken", res?.accessToken);
       navigate("/");
     },
     onError: (err) => {

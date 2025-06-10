@@ -1,4 +1,3 @@
-// src/lib/request.ts
 import { toast } from "react-toastify";
 import api from "./axios";
 import axios, { type AxiosRequestConfig } from "axios";

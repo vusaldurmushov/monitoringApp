@@ -9,12 +9,12 @@ function ColumnButton({ user }: { user: TUser }) {
   const { mutate: deleteUser } = useDeleteUser();
 
   return (
-    <div className='flex items-center'>
-      <Link to={`/users/${user._id}/edit`} className='text-[#0056c3]'>
-        <Pencil className='scale-[0.75]' />
+    <div className="flex items-center">
+      <Link to={`/users/${user._id}/edit`} className="text-[#0056c3]">
+        <Pencil className="scale-[0.75]" />
       </Link>
       <AlertDialogDemo onConfirm={() => deleteUser(user._id)}>
-        <Button variant='ghost' className='text-red-500 hover:text-red-600 '>
+        <Button variant="ghost" className="text-red-500 hover:text-red-600 ">
           <Trash2Icon />
         </Button>
       </AlertDialogDemo>

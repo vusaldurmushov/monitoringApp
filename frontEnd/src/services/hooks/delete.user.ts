@@ -1,5 +1,6 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { deleteUser } from "../api/userApi";
+import { toast } from "react-toastify";
 
 export const useDeleteUser = () => {
   const queryClient = useQueryClient();
@@ -9,7 +10,8 @@ export const useDeleteUser = () => {
     onSuccess: () => {
       queryClient.invalidateQueries({
         queryKey: ["paginateUsers"],
-      }); // refresh paginateUsers user list
+      });
+      toast.success("User remove successfully");
     },
     onError: (error) => {
       console.error("Delete user failed:", error);
