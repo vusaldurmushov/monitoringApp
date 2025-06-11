@@ -8,7 +8,6 @@ export const userLogin = async (req, res) => {
 
   const user = await db.findOne({ username });
 
-  console.log("🚀 ~ userLogin ~ user:", user);
   if (!user) {
     return res.status(400).send("We can't find this user!");
   }
@@ -18,10 +17,8 @@ export const userLogin = async (req, res) => {
 
   const payload = { id: user._id, email: user.email };
 
-  console.log(process.env.ACCESS_SECRET);
-
   const accessToken = jwt.sign(payload, process.env.ACCESS_SECRET, {
-    expiresIn: "15s",
+    expiresIn: "15m",
   });
   const refreshToken = jwt.sign(payload, process.env.REFRESH_SECRET, {
     expiresIn: "30d",
@@ -43,6 +40,7 @@ export const userLogin = async (req, res) => {
       id: user._id,
       email: user.email,
       name: user.name,
+      username: user.username,
     },
   });
 };

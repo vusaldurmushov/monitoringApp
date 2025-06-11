@@ -1,8 +1,13 @@
 import { request } from "@/lib/request";
 
-type TLoginInfo = {
-  username: string;
-  password: string;
+export type TLoginInfo = {
+  accessToken: string;
+  user: {
+    id: string;
+    email: string;
+    name: string;
+    username: string;
+  };
 };
 
 export const loginUser = async (loginInfo: TLoginInfo) => {

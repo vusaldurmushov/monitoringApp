@@ -1,9 +1,7 @@
 import { tokenDB } from "../config/tokenDb.js";
 import jwt from "jsonwebtoken";
 export const tokenCreate = async (req, res) => {
-    const refreshToken = req.cookies.refreshToken;
-//   console.log(req.body);
-//   const refreshToken = req.body.refreshToken;
+  const refreshToken = req.cookies.refreshToken;
   if (!refreshToken) return res.status(401).send("refresh token is not found");
 
   let tokenDb;

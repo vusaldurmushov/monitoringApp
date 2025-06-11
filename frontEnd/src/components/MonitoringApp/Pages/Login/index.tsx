@@ -1,25 +1,16 @@
 import { Button } from "@/components/ui/button";
+import type { TLoginInfo } from "@/services/api/login.api";
 import { useLoginUser } from "@/services/hooks/login.user";
 import InputForm from "@/shared/InputForm";
 import { FormProvider, useForm, type SubmitHandler } from "react-hook-form";
 
 function Login() {
-  const methods = useForm<TSubmit>();
+  const methods = useForm<TLoginInfo>();
   const { handleSubmit } = methods;
 
   const loginMutation = useLoginUser();
 
-  console.log(loginMutation);
-
-  type TSubmit = {
-    username: string;
-    password: string;
-  };
-
-  localStorage.getItem("isAuthenticated");
-
-  console.log(localStorage, "localStorage");
-  const onSubmit: SubmitHandler<TSubmit> = (data) => {
+  const onSubmit: SubmitHandler<TLoginInfo> = (data) => {
     loginMutation.mutate(data);
   };
 
