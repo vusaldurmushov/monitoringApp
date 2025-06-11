@@ -29,7 +29,7 @@ type TSidebarMenuGroup = {
 
 export function SidebarMenuGroup({ label, items }: TSidebarMenuGroup) {
   return (
-    <>
+    <div>
       <SidebarGroupLabel className='text-white hover:text-[var(--sidebar-primary)]'>
         {label}
       </SidebarGroupLabel>
@@ -82,6 +82,6 @@ export function SidebarMenuGroup({ label, items }: TSidebarMenuGroup) {
           ))}
         </SidebarMenu>
       </SidebarGroupContent>
-    </>
+    </div>
   );
 }

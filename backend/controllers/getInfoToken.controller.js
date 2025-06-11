@@ -5,7 +5,6 @@ export const getInfoToken = async (req, res) => {
   try {
     const authHeader = req.headers.authorization;
 
-    console.log(authHeader, "testAuth");
 
     if (!authHeader || !authHeader.startsWith("Bearer ")) {
       return res.status(401).send("No token provided");

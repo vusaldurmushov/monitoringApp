@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import type { TLoginInfo } from "@/services/api/login.api";
 import { useLoginUser } from "@/services/hooks/login.user";
 import InputForm from "@/shared/InputForm";
+import Loading from "@/shared/Loading";
 import { FormProvider, useForm, type SubmitHandler } from "react-hook-form";
 
 function Login() {
@@ -36,7 +37,7 @@ function Login() {
             )}
 
             {loginMutation.isPending && (
-              <p className="text-gray-500 text-sm mt-2">Loading...</p>
+             <Loading/>
             )}
 
             <Button

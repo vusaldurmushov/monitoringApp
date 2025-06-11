@@ -15,7 +15,6 @@ type TAddUser = {
 };
 
 function AddUser({ user }: TAddUser) {
-  console.log(user, "`user` in AddUser component");
   // const [preview, setPreview] = useState<string | null>(null);
 
   const methods = useForm<FormData>({

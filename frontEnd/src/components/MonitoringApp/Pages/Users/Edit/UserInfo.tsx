@@ -4,6 +4,7 @@ import { Link, useParams } from "react-router-dom";
 import { UserRoundPen, Delete } from "lucide-react";
 import { AlertDialogDemo } from "@/components/MonitoringApp/Pages/Users/List/AlertDialog";
 import { useDeleteUser } from "@/services/hooks/delete.user";
+import Loading from "@/shared/Loading";
 
 function UserInfo() {
   const { id } = useParams();
@@ -16,7 +17,7 @@ function UserInfo() {
 
   const { _id, username, email, dateForCreated, name } = user || {};
 
-  if (isLoading) return <p>Loading...</p>;
+  if (isLoading) return <Loading/>;
   return (
     <div className="flex flex-col gap-2 bg-white py-4 pl-5  shadow-md rounded-sm mt-4">
       <h1 className="text-black  font-semibold">{name}</h1>
@@ -32,7 +33,7 @@ function UserInfo() {
         >
           <UserRoundPen className="size-4" /> Edit
         </Link>
-        <AlertDialogDemo onConfirm={() => deleteUser(_id)}>
+        <AlertDialogDemo onConfirm={() => deleteUser(_id?? "")}>
           <Button className="border border-[var(--sidebar-third-background)] bg-[var(--sidebar-third-background)] text-white  hover:bg-[#f3003c]">
             <Delete className="size-4" />
             Delete

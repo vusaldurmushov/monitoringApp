@@ -8,9 +8,16 @@ import { db } from "./config/userDb.js";
 const app = express();
 app.use(express.json());
 app.use(cookieParser());
+app.use(
+  cors({
+    origin: "http://localhost:5173", // your frontend's origin
+    credentials: true, // allow cookies to be sent
+  })
+);
 app.use(cors());
 dotenv.config();
 app.options("*", cors());
+
 app.use(userRoutes);
 
 const PORT = process.env.PORT || 3000;

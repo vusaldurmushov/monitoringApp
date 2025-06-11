@@ -10,26 +10,26 @@ import ProtectedLayout from "./components/ProtectedLayout"; // <- new
 
 import { ToastContainer } from "react-toastify";
 import UserInfo from "./components/MonitoringApp/Pages/Users/Edit/UserInfo";
+import NotFound from "./shared/404&AccessDenied";
 
 function App() {
   return (
-    <div className="font-display">
+    <div className='font-display'>
       <Routes>
         {/* Public route without sidebar */}
-        <Route path="/login" element={<Login />} />
+        <Route path='/login' element={<Login />} />
+        <Route path='*' element={<NotFound />} />
 
         {/* Protected routes with sidebar layout */}
         <Route element={<ProtectedRoute />}>
           <Route element={<ProtectedLayout />}>
-            <Route path="/" element={<Dashboard />} />
-            <Route path="/addUser" element={<AddUser />} />
-            <Route path="/userlist" element={<UserList />} />
-            <Route path="/users/:id/edit" element={<Edit />} />
-            <Route path="/users/:id/info" element={<UserInfo />} />
+            <Route path='/' element={<Dashboard />} />
+            <Route path='/addUser' element={<AddUser />} />
+            <Route path='/userlist' element={<UserList />} />
+            <Route path='/users/:id/edit' element={<Edit />} />
+            <Route path='/users/:id/info' element={<UserInfo />} />
           </Route>
         </Route>
-
-        <Route path="*" element={<div>404 Not Found</div>} />
       </Routes>
 
       <ToastContainer />

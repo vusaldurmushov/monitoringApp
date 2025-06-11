@@ -11,9 +11,7 @@ function SubmitButton({ isEdit }: { isEdit?: boolean }) {
   const updateMutation = useUpdateUser(); //  Custom hook you created for PATCH
 
   const onSubmit: SubmitHandler<TUser> = (data: TUser) => {
-    console.log(data, "`data` in SubmitButton component");
     if (isEdit) {
-      console.log("edit work");
       updateMutation.mutate(data); // 🔁 update user
     } else {
       createMutation.mutate(data);

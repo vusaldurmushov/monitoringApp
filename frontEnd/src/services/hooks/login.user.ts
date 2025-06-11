@@ -8,11 +8,9 @@ export const useLoginUser = () => {
 
   return useMutation({
     mutationFn: loginUser,
-    onMutate: (vars) => {
-      console.log("Mutating with", vars);
-    },
+
     onSuccess: (res) => {
-      localStorage.setItem("accessToken", res?.accessToken);
+      localStorage.setItem("accessToken", res.accessToken);
       navigate("/");
     },
     onError: (err) => {

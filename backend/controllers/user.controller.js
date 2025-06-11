@@ -59,7 +59,6 @@ export const findUserfromDb = async (req, res) => {
 
   try {
     const user = await findUserDb(id);
-    console.log(user, "db findById");
 
     if (!user) {
       return res.status(404).send("User not found!");
@@ -85,12 +84,10 @@ export const getAllUsers = async (req, res) => {
 // PATCH
 export const changeData = async (req, res) => {
   const { id } = req.params;
-  console.log(id);
   const usersUpdateInfo = {
     ...req.body,
     dateForUpdate: new Date().toISOString(), // set updated timestamp
   };
-  console.log(usersUpdateInfo, "userIndo");
   if (!id) {
     return res.status(400).send("User ID not provided");
   }

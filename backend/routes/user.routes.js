@@ -23,21 +23,21 @@ const router = express.Router();
 
 router.get("/getAllUsers", authenticateToken, getAllUsers);
 
-router.get("/users/:id/edit", findUserfromDb);
+router.get("/users/:id/edit", authenticateToken, findUserfromDb);
 
-router.get("/users/token", getInfoToken);
+router.get("/users/token", authenticateToken, getInfoToken);
 
 // router.post("/createUser",  upload.single("profileImage"),validate(postSchema), createUser);
 
 router.post("/login", userLogin);
 
-router.post("/token", tokenCreate);
+router.post("/token", authenticateToken, tokenCreate);
 
-router.post("/createUser", validate(postSchema), createUser);
+router.post("/createUser", authenticateToken, validate(postSchema), createUser);
 
-router.patch("/users/:id/update", changeData);
+router.patch("/users/:id/update", authenticateToken, changeData);
 
-router.delete("/users/:id/deleteUser", deleteUser);
+router.delete("/users/:id/deleteUser", authenticateToken, deleteUser);
 
 // for pagination
 router.get(

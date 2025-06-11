@@ -37,7 +37,7 @@ type TPaginateData<T> = {
 };
 interface DataTableProps<T> {
   columns: ColumnDef<T>[];
-  PaginateData: TPaginateData<T> | undefined;
+  PaginateData: TPaginateData<T> ;
   pagination: TPaginationPage;
   setPagination: React.Dispatch<React.SetStateAction<TPaginationPage>>;
 }
