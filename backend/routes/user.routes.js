@@ -11,7 +11,7 @@ import {
 import { postSchema } from "../validation/user.validation.js";
 import {
   paginationController,
-  tokenCreate,
+  tokenUpdate,
   userLogin,
 } from "../controllers/main.controller.js";
 import { paginationMiddlewares } from "../middlewares/userPagination/paginationMiddleware.js";
@@ -31,7 +31,7 @@ router.get("/users/token", authenticateToken, getInfoToken);
 
 router.post("/login", userLogin);
 
-router.post("/token", authenticateToken, tokenCreate);
+router.post("/token", tokenUpdate);
 
 router.post("/createUser", authenticateToken, validate(postSchema), createUser);
 

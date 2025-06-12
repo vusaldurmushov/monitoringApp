@@ -14,12 +14,10 @@ export const getInfoToken = async (req, res) => {
 
     const decoded = jwt.verify(token, process.env.ACCESS_SECRET);
     const userId = decoded.id;
-    console.log(decoded, "decoded");
     let user;
 
     try {
       user = await db.findOne({ _id: userId });
-      console.log(user);
     } catch (error) {
       return res.status(500).send("Server dont work correctly");
     }

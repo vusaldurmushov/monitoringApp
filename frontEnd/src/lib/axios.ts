@@ -41,7 +41,6 @@ api.interceptors.response.use(
         );
 
         const newAccessToken = res.data.newAccessToken;
-        console.log("New access token received:", newAccessToken);
         localStorage.setItem("accessToken", newAccessToken);
 
         // Retry original request with new token

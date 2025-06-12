@@ -13,7 +13,6 @@ function UserInfo() {
   const { data: user, isLoading } = GetUser(id!);
   const { mutate: deleteUser } = useDeleteUser();
 
-  console.log(user);
 
   const { _id, username, email, dateForCreated, name } = user || {};
 

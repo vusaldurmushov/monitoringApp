@@ -28,7 +28,7 @@ export const userLogin = async (req, res) => {
 
   res.cookie("refreshToken", refreshToken, {
     httpOnly: true,
-    secure: true, // true if using HTTPS
+    secure: false, // true if using HTTPS
     sameSite: "Strict",
     maxAge: 30 * 24 * 60 * 60 * 1000, // 30 days
   });
