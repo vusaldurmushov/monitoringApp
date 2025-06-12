@@ -18,11 +18,12 @@ export const userLogin = async (req, res) => {
   const payload = { id: user._id, email: user.email };
 
   const accessToken = jwt.sign(payload, process.env.ACCESS_SECRET, {
-    expiresIn: "15m",
+    expiresIn: "5m",
   });
   const refreshToken = jwt.sign(payload, process.env.REFRESH_SECRET, {
     expiresIn: "30d",
   });
+
 
   await tokenDB.insert({ token: refreshToken });
 
@@ -32,6 +33,8 @@ export const userLogin = async (req, res) => {
     sameSite: "Strict",
     maxAge: 30 * 24 * 60 * 60 * 1000, // 30 days
   });
+
+  console.log(refreshToken, "refreshToken");
 
   // 6. Send access token + user data in response
   res.json({

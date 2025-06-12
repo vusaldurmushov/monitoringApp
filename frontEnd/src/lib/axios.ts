@@ -25,10 +25,7 @@ api.interceptors.response.use(
   async (error) => {
     const originalRequest = error.config;
 
-    if (
-      error.response?.status === 401 &&
-      !originalRequest._retry // Prevent infinite loop
-    ) {
+    if (error.response?.status === 401 && !originalRequest._retry) {
       originalRequest._retry = true;
 
       try {
@@ -36,24 +33,35 @@ api.interceptors.response.use(
           "http://localhost:3000/token",
           {},
           {
-            withCredentials: true, // Send refreshToken cookie
+            withCredentials: true, // Ensure cookie is sent
           }
         );
 
         const newAccessToken = res.data.newAccessToken;
+        console.log(newAccessToken,"newAccessToken")
         localStorage.setItem("accessToken", newAccessToken);
 
-        // Retry original request with new token
-        originalRequest.headers.Authorization = `Bearer ${newAccessToken}`;
+        // Update axios instance for future requests
+        api.defaults.headers.common[
+          "Authorization"
+        ] = `Bearer ${newAccessToken}`;
+
+        // Update the current failed request and retry
+        originalRequest.headers["Authorization"] = `Bearer ${newAccessToken}`;
+
+
+
         return api(originalRequest);
-      } catch (err) {
-        console.error("Refresh token failed:", err);
-        // Optionally redirect to login
+      } catch (refreshError) {
+        console.error("Refresh token failed:", refreshError);
+        // Optional: Clear session and redirect to login
+        localStorage.removeItem("accessToken");
+        window.location.href = "/login";
+        return Promise.reject(refreshError);
       }
     }
 
     return Promise.reject(error);
   }
 );
-
 export default api;
