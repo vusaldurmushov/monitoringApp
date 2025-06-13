@@ -5,12 +5,14 @@ import { adStats } from "@/const";
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
-const generateChartData = (dataSet: { name: string; quantity: number }[]) => ({
+const generateChartData = (
+  dataSet: { name: string; quantity: number; backgroundColor: string }[]
+) => ({
   labels: dataSet.map((item) => `${item.name} -${item.quantity}`),
   datasets: [
     {
       data: dataSet.map((item) => item.quantity),
-      backgroundColor: ["#FF6384", "#36A2EB", "#FFCE56", "#8BC34A", "#9C27B0"],
+      backgroundColor: dataSet.map((item) => item.backgroundColor),
       borderWidth: 1,
     },
   ],
@@ -18,15 +20,15 @@ const generateChartData = (dataSet: { name: string; quantity: number }[]) => ({
 
 export const AdStatsChart = () => {
   return (
-    <div className="p-6">
+    <div className="p-6 ">
       <CardTitle className="text-2xl font-bold mb-6">{adStats.title}</CardTitle>
       <div className="grid grid-cols-2 gap-4">
         {Object.entries(adStats.statistics).map(([subtitle, values]) => (
-          <Card>
-            <CardHeader key={subtitle} className="text-xl font-semibold mb-4">
+          <Card className=" h-[550px] ">
+            <CardHeader key={subtitle} className="text-xl font-semibold mb-4 text-center">
               {subtitle}
             </CardHeader>
-            <div className="h-[280px] mx-auto ">
+            <div className="h-[400px] w-full flex justify-center">
               <Pie data={generateChartData(values)} />
             </div>
           </Card>

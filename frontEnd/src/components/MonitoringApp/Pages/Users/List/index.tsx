@@ -18,14 +18,15 @@ export default function DemoPage() {
     error,
   } = usePaginateUser(pagination.pageIndex + 1, pagination.pageSize);
 
-  if (isLoading) return <Loading/>
+  if (isLoading) return <Loading />;
   if (error) return <div>Error occurred</div>;
+  if (!PaginateData) return null;
 
   return (
-    <div className='container mx-auto py-10'>
+    <div className="container mx-auto py-10">
       <DataTable<TUser>
         columns={columns}
-        PaginateData={PaginateData }
+        PaginateData={PaginateData}
         pagination={pagination}
         setPagination={setPagination}
       />

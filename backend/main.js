@@ -14,9 +14,15 @@ app.use(
     credentials: true, // allow cookies to be sent
   })
 );
-app.use(cors());
+// app.use(cors());
 dotenv.config();
-app.options("*", cors());
+app.options(
+  "*",
+  cors({
+    origin: "http://localhost:5173", // your frontend's origin
+    credentials: true, // allow cookies to be sent
+  })
+);
 
 app.use(userRoutes);
 

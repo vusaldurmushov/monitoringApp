@@ -5,6 +5,7 @@ const api = axios.create({
   headers: {
     "Content-Type": "application/json",
   },
+  withCredentials: true,
 });
 
 // Add a request interceptor to attach token
@@ -38,7 +39,6 @@ api.interceptors.response.use(
         );
 
         const newAccessToken = res.data.newAccessToken;
-        console.log(newAccessToken,"newAccessToken")
         localStorage.setItem("accessToken", newAccessToken);
 
         // Update axios instance for future requests
@@ -49,14 +49,11 @@ api.interceptors.response.use(
         // Update the current failed request and retry
         originalRequest.headers["Authorization"] = `Bearer ${newAccessToken}`;
 
-
-
         return api(originalRequest);
       } catch (refreshError) {
         console.error("Refresh token failed:", refreshError);
         // Optional: Clear session and redirect to login
         localStorage.removeItem("accessToken");
-        window.location.href = "/login";
         return Promise.reject(refreshError);
       }
     }
