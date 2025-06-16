@@ -9,10 +9,10 @@ function ColumnButton({ data }: { data: TReason }) {
   const { mutate: deleteReason } = useDeleteReason();
 
   const url = '/reasonForNotUsing';
-
+  // reasonForNotUsing/:id/edit
   return (
     <div className='flex items-center'>
-      <Link to={`/users/${data._id}/edit`} className='text-[#0056c3]'>
+      <Link to={`/reasonForNotUsing/${data._id}/edit`} className='text-[#0056c3]'>
         <Pencil className='scale-[0.75]' />
       </Link>
       <AlertDialogDemo url={url} onConfirm={() => deleteReason({ id: data._id })}>

@@ -1,20 +1,35 @@
 import { Button } from "@/components/ui/button";
 import usePostReason from "@/services/hooks/reasonPage/post.reason";
+import { useUpdateReason } from "@/services/hooks/reasonPage/update.reason";
+import type { TReason } from "@/types";
 import { useFormContext } from "react-hook-form";
 import { Link } from "react-router-dom";
 
-function ReasonButton() {
+type TReasonButton = {
+  edit?: boolean;
+};
+
+function ReasonButton({ edit = false }: TReasonButton) {
   type TFormData = {
     reason: string;
   };
 
-  const mutation = usePostReason();
+  const postReason = usePostReason();
+
+  const updateReason = useUpdateReason();
+
   const methods = useFormContext<TFormData>();
 
   const { handleSubmit } = methods;
 
-  const onSubmit = (data: { reason: string }) => {
-    mutation.mutate(data);
+  const onSubmit = (data: TReason) => {
+    if (edit) {
+      updateReason.mutate(data); // 🔁 update user
+    } else {
+      postReason.mutate(data);
+      // 🆕 create user
+    }
+
     methods.reset(); // Reset the form after submission
   };
 
@@ -26,7 +41,7 @@ function ReasonButton() {
         type='submit'
         className=' mr-1 text-white'
       >
-        Göndər
+        {edit ? "Dəyiş" : "Göndər"}
       </Button>
       <Button variant='ghost'>
         <Link to='/reasonForNotUsing'>Geri qayıt</Link>

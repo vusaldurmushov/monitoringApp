@@ -1,13 +1,21 @@
 import { createReason } from "@/services/api/reasonApi/indexReason";
-import { useMutation } from "@tanstack/react-query";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { toast } from "react-toastify";
 
 export default function usePostReason() {
+  const queryClient = useQueryClient();
+
   return useMutation({
     mutationFn: createReason,
 
-    onSuccess: async () => {
-      toast.success("Posted reason successfully!");
+    onSuccess: () => {
+      queryClient.invalidateQueries({
+        queryKey: ["paginateReason"],
+      });
+      toast.success("Reason add successfully");
+    },
+    onError: (error) => {
+      console.error("Delete reason failed:", error);
     },
   });
 }

@@ -15,6 +15,7 @@ export const columns: ColumnDef<TReason>[] = [
     header: "Reason",
     cell: ({ row }: { row: Row<TReason> }) => {
       const data = row.original;
+      // reasonForNotUsing/:id/info
       return (
         <Link className='text-[#0056c3]' to={`/users/${data._id}/info`}>
           {" "}

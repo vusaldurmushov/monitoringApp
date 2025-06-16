@@ -37,7 +37,7 @@ function App() {
             />
             <Route
               path='/reasonForNotUsing/:id/edit'
-              element={<ReasonForNotUsing   />}
+              element={<ReasonForNotUsing edit={true} />}
             />
             <Route
               path='/reasonForNotUsing/:id/info'

@@ -1,8 +1,9 @@
 import { request } from "@/lib/request";
+import type { TReason } from "@/types";
 
-export default function getReason() {
-  return request({
+export default async function getReason(id: string): Promise<TReason> {
+  return request<TReason>({
     method: "GET",
-    url: "/getReasonForNotUsing/:id",
+    url: `/getReasonForNotUsing/${id}`,
   });
 }
