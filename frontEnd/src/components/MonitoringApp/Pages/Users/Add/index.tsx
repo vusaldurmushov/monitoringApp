@@ -31,6 +31,7 @@ function AddUser({ user }: TAddUser) {
         username: user.username,
         email: user.email,
         role: user.role,
+        _id: user._id,
         // profileImage: user.profileImage, // optional
       });
     }
@@ -39,13 +40,13 @@ function AddUser({ user }: TAddUser) {
   const isEdit = !!user;
 
   return (
-    <div className="h-full">
-      <h1 className="font-medium p-4">
+    <div className='h-full'>
+      <h1 className='font-medium p-4'>
         {isEdit ? "EDIT PROFILE" : "CREATE PROFILE"}
       </h1>
 
       <FormProvider {...methods}>
-        <div className="flex flex-col gap-4">
+        <div className='flex flex-col gap-4'>
           {/* <InputForm
             name='profileImage'
             label='Profile image'
@@ -53,23 +54,23 @@ function AddUser({ user }: TAddUser) {
             accept='image/*'
           /> */}
 
-          <InputForm name="name" label="Fullname" />
-          <InputForm name="username" label="Username" disabled={isEdit} />
+          <InputForm name='name' label='Fullname' />
+          <InputForm name='username' label='Username' disabled={isEdit} />
           <InputForm
-            name="email"
-            label="Email"
-            type="email"
+            name='email'
+            label='Email'
+            type='email'
             disabled={isEdit}
           />
-          <InputForm name="password" label="Password" />
-          <InputForm name="confirmPassword" label="Confirm password" />
+          <InputForm name='password' label='Password' />
+          <InputForm name='confirmPassword' label='Confirm password' />
           <SelectForm
-            name="role"
-            label="Role"
+            name='role'
+            label='Role'
             // value='Admin'
-            placeholder="Admin"
+            placeholder='Admin'
             options={roleOptions}
-            className="w-full"
+            className='w-full'
           />
         </div>
         <SubmitButton isEdit={isEdit} />

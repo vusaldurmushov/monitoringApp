@@ -10,3 +10,4 @@ export const fetchUsersMiddleware = async (req, res, next) => {
     next(err);
   }
 };
+

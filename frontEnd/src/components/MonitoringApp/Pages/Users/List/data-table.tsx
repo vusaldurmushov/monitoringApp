@@ -40,12 +40,14 @@ interface DataTableProps<T> {
   PaginateData: TPaginateData<T>;
   pagination: TPaginationPage;
   setPagination: React.Dispatch<React.SetStateAction<TPaginationPage>>;
+  text?: string;
 }
 export function DataTable<T>({
   columns,
   PaginateData,
   pagination,
   setPagination,
+  text,
 }: DataTableProps<T>) {
   const [globalFilter, setGlobalFilter] = useState("");
 
@@ -86,12 +88,14 @@ export function DataTable<T>({
   });
 
   return (
-    <div className="rounded-md border">
+    <div className='rounded-md border p-2'>
+      {text && <h1 className="pl-2 text-[16px]">{text}</h1>}
+
       <Input
-        placeholder="Search all table..."
+        placeholder='Search all table...'
         value={globalFilter}
         onChange={(e) => table.setGlobalFilter(e.target.value)}
-        className="my-4 w-full max-w-sm ml-2"
+        className='my-4 w-full max-w-sm ml-2'
       />
       <Table>
         <TableHeader>
@@ -128,7 +132,7 @@ export function DataTable<T>({
             ))
           ) : (
             <TableRow>
-              <TableCell colSpan={columns.length} className="h-24 text-center">
+              <TableCell colSpan={columns.length} className='h-24 text-center'>
                 No results.
               </TableCell>
             </TableRow>
@@ -136,15 +140,15 @@ export function DataTable<T>({
         </TableBody>
       </Table>
 
-      <div className="flex items-center justify-between  bg-gray-50">
-        <div className="flex items-center gap-4 my-4 ml-2 ">
-          <Label htmlFor="rowsPerPage">Rows per page:</Label>
+      <div className='flex items-center justify-between  bg-gray-50'>
+        <div className='flex items-center gap-4 my-4 ml-2 '>
+          <Label htmlFor='rowsPerPage'>Rows per page:</Label>
           <Select
             value={pagination.pageSize.toString()}
             onValueChange={(value) => table.setPageSize(Number(value))}
           >
-            <SelectTrigger className="w-[80px]" id="rowsPerPage">
-              <SelectValue placeholder="Select size" />
+            <SelectTrigger className='w-[80px]' id='rowsPerPage'>
+              <SelectValue placeholder='Select size' />
             </SelectTrigger>
             <SelectContent>
               {[5, 10, 15].map((size) => (
@@ -163,22 +167,22 @@ export function DataTable<T>({
     pageSize: number; */}
         <div>
           <Button
-            variant="secondary"
-            className="text-white mr-2"
+            variant='secondary'
+            className='text-white mr-2'
             onClick={handlePreviousPage}
             disabled={+pagination.pageIndex === 0}
           >
-            <ChevronLeft className="size-4" />
+            <ChevronLeft className='size-4' />
           </Button>
 
           <span>Page {pagination.pageIndex + 1}</span>
           <Button
-            variant="secondary"
-            className="text-white ml-2"
+            variant='secondary'
+            className='text-white ml-2'
             disabled={pagination.pageIndex + 1 >= totalPages}
             onClick={handleNextPage}
           >
-            <ChevronRight className="size-4" />
+            <ChevronRight className='size-4' />
           </Button>
         </div>
       </div>

@@ -11,23 +11,38 @@ import ProtectedLayout from "./components/ProtectedLayout"; // <- new
 import { ToastContainer } from "react-toastify";
 import UserInfo from "./components/MonitoringApp/Pages/Users/Edit/UserInfo";
 import NotFound from "./shared/404&AccessDenied";
+import ReasonForNotUsing from "./components/MonitoringApp/Pages/ReasonForNotUsing";
+import ReasonList from "./components/MonitoringApp/Pages/ReasonForNotUsing/reasonTable/reasonList";
 
 function App() {
   return (
-    <div className="font-display">
+    <div className='font-display'>
       <Routes>
         {/* Public route without sidebar */}
-        <Route path="/login" element={<Login />} />
-        <Route path="*" element={<NotFound />} />
+        <Route path='/login' element={<Login />} />
+        <Route path='*' element={<NotFound />} />
 
         {/* Protected routes with sidebar layout */}
         <Route element={<ProtectedRoute />}>
           <Route element={<ProtectedLayout />}>
-            <Route path="/" element={<Dashboard />} />
-            <Route path="/addUser" element={<AddUser />} />
-            <Route path="/userlist" element={<UserList />} />
-            <Route path="/users/:id/edit" element={<Edit />} />
-            <Route path="/users/:id/info" element={<UserInfo />} />
+            <Route path='/' element={<Dashboard />} />
+            <Route path='/addUser' element={<AddUser />} />
+            <Route path='/userlist' element={<UserList />} />
+            <Route path='/users/:id/edit' element={<Edit />} />
+            <Route path='/users/:id/info' element={<UserInfo />} />
+            <Route path='/reasonForNotUsing' element={<ReasonList />} />
+            <Route
+              path='/reasonForNotUsing/add'
+              element={<ReasonForNotUsing />}
+            />
+            <Route
+              path='/reasonForNotUsing/:id/edit'
+              element={<ReasonForNotUsing   />}
+            />
+            <Route
+              path='/reasonForNotUsing/:id/info'
+              element={<ReasonForNotUsing />}
+            />
           </Route>
         </Route>
       </Routes>

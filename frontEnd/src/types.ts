@@ -9,10 +9,17 @@ export type TUser = {
   profilImage?: string;
   email?: string;
   dateForCreated?: string;
+  dateForUpdate?: string;
 };
-
 
 export type TPaginationPage = {
   pageIndex: number;
   pageSize: number;
+};
+
+export type TReason = {
+  _id: string;
+  reason: string;
+  dateForCreated?: string;
+  dateForUpdate?: string;
 };

@@ -8,22 +8,32 @@ export const paginationMiddlewares = (req, res, next) => {
   }
 
   model.sort((a, b) => {
-    const dateA = new Date(a.dateForCreated);
-    const dateB = new Date(b.dateForCreated);
+    const parseDate = (str) => {
+      const [datePart, timePart] = str.split(", ");
+      const [day, month, year] = datePart.split(".").map(Number);
+      const [hours, minutes] = timePart.split(":").map(Number);
+      return new Date(year, month - 1, day, hours, minutes);
+    };
+
+    const dateA = parseDate(a.dateForCreated);
+    const dateB = parseDate(b.dateForCreated);
     return dateB - dateA; // descending order
   });
+
   // last add data is first
 
   const startIndex = (page - 1) * limit;
   const endIndex = page * limit;
   const paginatedUsers = model.slice(startIndex, endIndex);
 
+  const sanitizedUsers = paginatedUsers.map(({ password, ...rest }) => rest);
+
   const result = {
     page,
     limit,
     totalUsers: model.length,
     totalPages: Math.ceil(model.length / limit),
-    data: paginatedUsers,
+    data: sanitizedUsers,
   };
 
   res.paginatedResult = result;

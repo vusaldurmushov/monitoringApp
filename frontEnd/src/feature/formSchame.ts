@@ -18,6 +18,7 @@ export const formSchema = z
     role: z.string(),
     password: z.string().optional(),
     confirmPassword: z.string().optional(),
+    _id: z.string().optional(),
   })
   .superRefine((val, ctx) => {
     if (val.password !== val.confirmPassword) {

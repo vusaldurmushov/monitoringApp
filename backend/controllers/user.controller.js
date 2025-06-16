@@ -33,7 +33,15 @@ export const createUser = async (req, res) => {
       dateForCreated,
     };
     delete userData.confirmPassword;
-    const newUser = await addUserDb(userData);
+
+    let newUser;
+
+    try {
+      newUser = await addUserDb(userData);
+    } catch (error) {
+      return res.status(500).send("Server problem!");
+    }
+
     res
       .status(201)
       .json({ message: "User created successfully", user: newUser });
@@ -83,10 +91,20 @@ export const getAllUsers = async (req, res) => {
 
 // PATCH
 export const changeData = async (req, res) => {
+  const now = new Date();
   const { id } = req.params;
   const usersUpdateInfo = {
     ...req.body,
-    dateForUpdate: new Date().toISOString(), // set updated timestamp
+    dateForUpdate: now
+      .toLocaleString("en-GB", {
+        day: "2-digit",
+        month: "2-digit",
+        year: "numeric",
+        hour: "2-digit",
+        minute: "2-digit",
+        hour12: false,
+      })
+      .replace(/\//g, "."), // set updated timestamp
   };
   if (!id) {
     return res.status(400).send("User ID not provided");
@@ -95,6 +113,7 @@ export const changeData = async (req, res) => {
   try {
     // Update user
     const result = await updateUserDb(id, usersUpdateInfo);
+
 
     if (result === 0) {
       return res.status(404).json({ message: "User not found" });
@@ -110,7 +129,7 @@ export const changeData = async (req, res) => {
   }
 };
 
-// DeelteUser
+// DeleteUser
 
 export const deleteUser = async (req, res) => {
   const { id } = req.params;

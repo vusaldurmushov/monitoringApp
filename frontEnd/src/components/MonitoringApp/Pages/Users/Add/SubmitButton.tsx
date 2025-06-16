@@ -7,7 +7,7 @@ import type { TUser } from "@/types";
 function SubmitButton({ isEdit }: { isEdit?: boolean }) {
   const methods = useFormContext<TUser>();
 
-  const createMutation = useCreateUser({methods});
+  const createMutation = useCreateUser({ methods });
   const updateMutation = useUpdateUser(); //  Custom hook you created for PATCH
 
   const onSubmit: SubmitHandler<TUser> = (data: TUser) => {
@@ -21,9 +21,9 @@ function SubmitButton({ isEdit }: { isEdit?: boolean }) {
 
   return (
     <Button
-      className="self-start"
+      className='self-start'
       onClick={methods.handleSubmit(onSubmit)}
-      type="submit"
+      type='submit'
     >
       {isEdit ? "Update" : "Create"}
     </Button>

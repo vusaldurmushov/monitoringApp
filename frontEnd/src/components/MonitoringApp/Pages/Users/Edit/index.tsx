@@ -7,8 +7,10 @@ import { useParams } from "react-router-dom";
 function Edit() {
   const { id } = useParams();
 
+
   // now you can use this id to fetch user data
-  const { data: user, isLoading } = GetUser(id!);
+  const { data: user, isLoading } = GetUser(id as string);
+
 
   if (isLoading) return <Loading/>;
 

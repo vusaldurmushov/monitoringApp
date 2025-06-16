@@ -26,6 +26,7 @@ function InputForm({
   disabled,
   onChange,
   className,
+  ...props
 }: InputProps) {
   const methods = useFormContext();
 
@@ -45,6 +46,7 @@ function InputForm({
               disabled={disabled}
               value={field.value ?? ""}
               accept={accept}
+              {...props}
               onChange={(e) => {
                 field.onChange(e); // important: keep RHF in sync
                 onChange?.(e); // optional: call your custom handler
